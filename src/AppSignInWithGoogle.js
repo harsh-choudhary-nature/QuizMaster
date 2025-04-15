@@ -6,7 +6,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <GoogleOAuthProvider clientId="403542997797-lep7mbkmmnlqbgk5c6acsh82nqrseqgn.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="">
       <div style={{ padding: 20 }}>
         <h1>Google Login with Cloud Console</h1>
         {user ? (
