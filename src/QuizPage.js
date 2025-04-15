@@ -3,7 +3,7 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 1; // Increment this manually when you release a new set
+const QUIZ_VERSION = 2; // Increment this manually when you release a new set
 
 
 const defaultQuestions = [
