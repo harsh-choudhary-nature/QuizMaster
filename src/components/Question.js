@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Question = ({ question, options, correctOption, description }) => {
-  const [selected, setSelected] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = () => {
-    if (selected !== null) setSubmitted(true);
-  };
+const Question = ({ question, options, correctOption, description, selectedOption, submitted, onSelectOption, onSubmit }) => {
 
   return (
     <div className="question-card">
@@ -20,23 +14,23 @@ const Question = ({ question, options, correctOption, description }) => {
                 name={question}
                 value={idx}
                 disabled={submitted}
-                checked={selected === idx}
-                onChange={() => setSelected(idx)}
+                checked={selectedOption === idx}
+                onChange={() => onSelectOption(idx)}
               />
-              {opt}
+              {' '}{opt}
             </label>
           </li>
         ))}
       </ul>
       {!submitted && (
-        <button className="submit-btn" onClick={handleSubmit} disabled={selected === null}>
+        <button className="submit-btn" onClick={onSubmit} disabled={submitted || selectedOption === null}>
           Submit
         </button>
       )}
       {submitted && (
-        <div className={`result ${selected === correctOption ? 'correct' : 'wrong'}`}>
+        <div className={`result ${selectedOption === correctOption ? 'correct' : 'wrong'}`}>
           <p>
-            {selected === correctOption ? '✅ Correct!' : '❌ Incorrect.'}
+            {selectedOption === correctOption ? '✅ Correct!' : '❌ Incorrect.'}
           </p>
           <p className="description">{description}</p>
         </div>
