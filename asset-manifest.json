@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/QuizMaster/static/css/main.c7e295d5.css",
+    "main.js": "/QuizMaster/static/js/main.6e1dc1c2.js",
+    "static/js/453.fc01f49c.chunk.js": "/QuizMaster/static/js/453.fc01f49c.chunk.js",
+    "index.html": "/QuizMaster/index.html",
+    "main.c7e295d5.css.map": "/QuizMaster/static/css/main.c7e295d5.css.map",
+    "main.6e1dc1c2.js.map": "/QuizMaster/static/js/main.6e1dc1c2.js.map",
+    "453.fc01f49c.chunk.js.map": "/QuizMaster/static/js/453.fc01f49c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7e295d5.css",
+    "static/js/main.6e1dc1c2.js"
+  ]
+}
