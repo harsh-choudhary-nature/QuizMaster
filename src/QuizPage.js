@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
+const VERSION_KEY = 'quiz-version';
+const QUIZ_VERSION = 1; // Increment this manually when you release a new set
+
 
 const defaultQuestions = [
   {
@@ -44,12 +47,15 @@ const QuizPage = () => {
 
   // Load progress on mount
   useEffect(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (saved) {
-      setUserProgress(JSON.parse(saved));
+    const savedVersion = localStorage.getItem(VERSION_KEY);
+    const savedProgress = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+    if (parseInt(savedVersion) === QUIZ_VERSION && savedProgress) {
+      setUserProgress(JSON.parse(savedProgress));
     } else {
-      // Initialize default progress state
+      // Either no version or outdated version — reset
       initializeProgress();
+      localStorage.setItem(VERSION_KEY, QUIZ_VERSION.toString());
     }
   }, []);
 
