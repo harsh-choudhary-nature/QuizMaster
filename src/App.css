@@ -108,3 +108,40 @@
   margin-top: 8px;
   font-style: italic;
 }
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(0.95) translate(-50%, -50%); }
+  10% { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+  90% { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+  100% { opacity: 0; transform: scale(0.95) translate(-50%, -50%); }
+}
+
+.ribbon {
+  position: fixed;
+  width: 100px;
+  height: 10px;
+  top: -20px;
+  opacity: 0.8;
+  z-index: 9999;
+  border-radius: 10px;
+  animation: ribbonFall 3s linear infinite;
+}
+
+.ribbon-0 { left: 10%; background: linear-gradient(90deg, red, orange); animation-delay: 0s; }
+.ribbon-1 { left: 30%; background: linear-gradient(90deg, blue, cyan); animation-delay: 0.3s; }
+.ribbon-2 { left: 50%; background: linear-gradient(90deg, green, lime); animation-delay: 0.6s; }
+.ribbon-3 { left: 70%; background: linear-gradient(90deg, purple, pink); animation-delay: 0.9s; }
+.ribbon-4 { left: 90%; background: linear-gradient(90deg, yellow, gold); animation-delay: 1.2s; }
+
+@keyframes ribbonFall {
+  0% {
+    top: -20px;
+    transform: rotateZ(0deg) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    transform: rotateZ(360deg) translateX(50px);
+    opacity: 0;
+  }
+}

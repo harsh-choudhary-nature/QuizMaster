@@ -43,6 +43,7 @@ const QuizPage = () => {
 
   const [userProgress, setUserProgress] = useState([]);
   const [score, setScore] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
 
 
   // Load progress on mount
@@ -71,6 +72,14 @@ const QuizPage = () => {
           : acc;
       }, 0);
       setScore(correctCount);
+      if (correctCount === defaultQuestions.length) {
+        setShowSuccess(true);
+  
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 3000);
+      }
     }
   }, [userProgress]);
 
@@ -104,6 +113,35 @@ const QuizPage = () => {
 
   return (
     <div className="quiz-container">
+      {showSuccess && (
+        <>
+          {/* Success Message */}
+          <div style={{
+            position: 'fixed',
+            top: '20%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: '#4BB543',
+            color: 'white',
+            padding: '20px 40px',
+            borderRadius: '15px',
+            fontSize: '1.4rem',
+            fontWeight: 'bold',
+            boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+            zIndex: 10001,
+            textAlign: 'center',
+            animation: 'fadeInOut 3s ease'
+          }}>
+            🎉 Perfect Score! Well Done! 🎉
+          </div>
+      
+          {/* Animated Ribbons */}
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className={`ribbon ribbon-${i}`} />
+          ))}
+        </>
+      )}
+
       <div style={{
         textAlign: 'center',
         fontSize: '2rem',
