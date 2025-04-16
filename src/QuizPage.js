@@ -104,6 +104,15 @@ const QuizPage = () => {
 
   return (
     <div className="quiz-container">
+      <div style={{
+        textAlign: 'center',
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '30px',
+        color: '#fff'
+      }}>
+        🧠 Constitution Quiz
+      </div>
 
       {defaultQuestions.map((q, idx) => (
         <Question
@@ -119,7 +128,7 @@ const QuizPage = () => {
         />
       ))}
 
-      <div style={{ fontSize: '1.2rem', marginBottom: '20px', fontWeight: 'bold' }}>
+      <div style={{ fontSize: '1.2rem', marginBottom: '20px', fontWeight: 'bold' }} translate='no'>
         Total Correct: {score} / {defaultQuestions.length}
       </div>
 
