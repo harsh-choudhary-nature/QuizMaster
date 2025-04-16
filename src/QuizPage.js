@@ -166,8 +166,8 @@ const QuizPage = () => {
         />
       ))}
 
-      <div style={{ fontSize: '1.2rem', marginBottom: '20px', fontWeight: 'bold' }} translate='no'>
-        Total Correct: {score} / {defaultQuestions.length}
+      <div style={{ fontSize: '1.2rem', marginBottom: '20px', fontWeight: 'bold' }}>
+        Total Correct: <span translate = 'no'>{score} / {defaultQuestions.length}</span>
       </div>
 
       <button className="start-btn" onClick={handleReset}>Reset Quiz</button>
