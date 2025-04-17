@@ -3,39 +3,39 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 3; // Increment this manually when you release a new set
+const QUIZ_VERSION = 4; // Increment this manually when you release a new set
 
 
 const defaultQuestions = [
   {
-    question: 'Which of the following states is included in the sixth schedule of the Constitution of India?',
-    options: ['Nagaland', 'Manipur', 'Mizoram', 'Anuranchal Pradesh'],
+    question: 'Who founded the Tattvabodhini Sabha that was set up to explore spiritual truth?',
+    options: ['Keshab Chandra Sen', 'Raja Ram Mohan Roy', 'Debendranath Tagore', 'Dayanand Saraswati'],
     correctOption: 2,
-    description: 'Assam, Meghalaya, Tripura and Mizoram are provisioned under the sixth schedule of the constitution of India [Article 244].'
+    description: 'The Tattvabodhini Sabha was founded by Debendranath Tagore in 1839. It was established as a reformist group within the Brahmo Samaj to promote spiritual inquiry, rational thought, and the study of the Upanishads.'
   },
   {
-    question: 'Which of the following articles of the Constitution of India has a provision for financial emergency?',
-    options: ['Article 365', 'Article 356', 'Article 330', 'Article 360'],
-    correctOption: 3,
-    description: 'Article 360 states that a financial emergency can be declared by the President of India, in case the financial stability or credit of India or any part thereof is threatened.'
+    question: 'In which of the following animal phyla, is the body divided into head, thorax and abdomen?',
+    options: ['Annelida', 'Mollusca', 'Arthropoda', 'Chordata'],
+    correctOption: 2,
+    description: 'Arthropoda: This phylum includes animals like insects, crustaceans, and arachnids, and many of them (especially insects) show this clear tripartite body segmentation.'
   },
   {
-    question: 'Which article of the Constitution of India mentions that the Lok Sabha must have a Speaker and a Depty Speaker?',
-    options: ['Article 93', 'Article 85', 'Article 100', 'Article 97'],
+    question: 'Which state had the first female Governor in independent India?',
+    options: ['West Bengal', 'Rajasthan', 'Uttar Pradesh', 'Gujarat'],
+    correctOption: 2,
+    description: 'The first female Governor in independent India was Sarojini Naidu, who became the Governor of Uttar Pradesh in 1947.'
+  },
+  {
+    question: 'Who among the following was the head of the Diwan-i-Insha department under the Delhi sultanate?',
+    options: ['Dabir-i-Khas', 'Barid-i-Mumalik', 'Amir-i-Dad', 'Wakil-i-Dar'],
     correctOption: 0,
-    description: 'This is mentioned in Article 93 of the constitution of India.'
+    description: 'The head of the Diwan-i-Insha department under the Delhi Sultanate was the Dabir-i-Khas (also known as Insha-i-Mahall).'
   },
   {
-    question: 'Which of the following articles of the Constituion of India has a provision for the Constitution of Legislatures in States?',
-    options: ['Article 167', 'Article 168', 'Article 163', 'Article 165'],
-    correctOption: 1,
-    description: 'Article 168 of the Constitution states that for every state there shall be a Legislature which shall consist of the Governor and 1 (or 2) house(es).'
-  },
-  {
-    question: 'Which of the following articles of the Constitution of India provides constitutional remedies for the enforcement of fundamental rights?',
-    options: ['Article 40', 'Article 36', 'Article 38', 'Article 32'],
+    question: 'In which year did Antoine Lavoisier publish ‘Methods of Chemical Nomenclature’, which included the rules for naming chemical compounds that are still in use today?',
+    options: ['1783', '1780', '1790', '1787'],
     correctOption: 3,
-    description: 'Article 32 provides the right to constitutional remedies for the enforcement of fundamental rights. It is also called the heart and soul of the Constitution.'
+    description: 'Antoine Lavoisier published ‘Methods of Chemical Nomenclature’ in the year 1787. This work laid the foundation for the systematic naming of chemical compounds.'
   },
 ];
 
@@ -149,7 +149,7 @@ const QuizPage = () => {
         marginBottom: '30px',
         color: '#fff'
       }}>
-        🧠 Constitution Quiz
+        🧠 General Quiz
       </div>
 
       {defaultQuestions.map((q, idx) => (
