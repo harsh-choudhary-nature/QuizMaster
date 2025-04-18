@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from '../styles/RegisterPage.module.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,8 +9,29 @@ function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Create refs for each OTP input
+  const otpRefs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleOtpChange = (e, index) => {
+    const value = e.target.value;
+    const newOtp = form.otp.split('');
+    newOtp[index] = value;
+    setForm({ ...form, otp: newOtp.join('') });
+
+    // Move to the next OTP input if the current input has a value
+    if (value && index < otpRefs.length - 1) {
+      otpRefs[index + 1].current.focus();
+    }
   };
 
   const sendOtp = async () => {
@@ -69,7 +90,7 @@ function RegisterPage() {
   return (
     <div className={styles.registerContainer}>
       <h2>Register</h2>
-
+      <label>Email<span className={styles.redChar}>*</span>: </label>
       <input
         type="email"
         name="email"
@@ -85,6 +106,7 @@ function RegisterPage() {
         </button>
       ) : (
         <>
+          <label>OTP<span className={styles.redChar}>*</span>: </label>
           <div className={styles.otpContainer}>
             {[...Array(6)].map((_, index) => (
               <input
@@ -93,15 +115,13 @@ function RegisterPage() {
                 name={`otp${index}`}
                 maxLength="1"
                 value={form.otp[index] || ''}
-                onChange={(e) => {
-                  const newOtp = form.otp.split('');
-                  newOtp[index] = e.target.value;
-                  setForm({ ...form, otp: newOtp.join('') });
-                }}
+                onChange={(e) => handleOtpChange(e, index)}
+                ref={otpRefs[index]} // Assign the ref to each input
                 required
               />
             ))}
           </div>
+          <label>Username<span className={styles.redChar}>*</span>: </label>
           <input
             type="text"
             name="username"
@@ -110,6 +130,7 @@ function RegisterPage() {
             onChange={handleChange}
             required
           />
+          <label>Password<span className={styles.redChar}>*</span>: </label>
           <input
             type="password"
             name="password"

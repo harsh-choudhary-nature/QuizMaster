@@ -14,6 +14,13 @@
     width: 100%;
 }
 
+.registerContainer label {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: white;
+    align-self: flex-start;
+}
+
 .registerContainer input {
     display: block;
     width: 100%;
@@ -74,3 +81,10 @@
     width: 100%;
     text-align: left;
 }
+
+.redChar {
+    font-weight: bold;
+    color: rgb(255, 123, 0);
+    font-size: 0.8rem;  /* Make the asterisk smaller */
+    vertical-align: super;  /* Make it appear as superscript */
+  }
