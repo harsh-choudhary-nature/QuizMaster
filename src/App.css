@@ -7,6 +7,7 @@
   background: linear-gradient(to right, #3b4244, #1e1f1f);
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 80px;
 }
 
 .App-header {
