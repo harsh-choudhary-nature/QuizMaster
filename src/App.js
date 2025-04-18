@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import QuizPage from './QuizPage';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -18,6 +19,7 @@ function App() {
       ) : (
         <QuizPage />
       )}
+      <Analytics />
     </div>
   );
 }
