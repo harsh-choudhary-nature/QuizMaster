@@ -81,19 +81,27 @@ function RegisterPage() {
 
       {!otpSent ? (
         <button onClick={sendOtp} disabled={loading}>
-          {loading ? 'Sending OTP...' : 'Verify Email'}
+          {loading ? 'Sending OTP...' : 'Get OTP'}
         </button>
       ) : (
         <>
-          <input
-            type="text"
-            name="otp"
-            placeholder="Enter OTP"
-            maxLength={6}
-            value={form.otp}
-            onChange={handleChange}
-            required
-          />
+          <div className={styles.otpContainer}>
+            {[...Array(6)].map((_, index) => (
+              <input
+                key={index}
+                type="text"
+                name={`otp${index}`}
+                maxLength="1"
+                value={form.otp[index] || ''}
+                onChange={(e) => {
+                  const newOtp = form.otp.split('');
+                  newOtp[index] = e.target.value;
+                  setForm({ ...form, otp: newOtp.join('') });
+                }}
+                required
+              />
+            ))}
+          </div>
           <input
             type="text"
             name="username"
