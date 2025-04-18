@@ -32,6 +32,11 @@
     transition: 0.3s ease;
 }
 
+.navbarLinks li a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .navbarLinks li:hover {
     color: #ffd700;
 }
