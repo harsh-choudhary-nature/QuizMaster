@@ -3,39 +3,38 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 4; // Increment this manually when you release a new set
-
+const QUIZ_VERSION = 5; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Who founded the Tattvabodhini Sabha that was set up to explore spiritual truth?',
-    options: ['Keshab Chandra Sen', 'Raja Ram Mohan Roy', 'Debendranath Tagore', 'Dayanand Saraswati'],
-    correctOption: 2,
-    description: 'The Tattvabodhini Sabha was founded by Debendranath Tagore in 1839. It was established as a reformist group within the Brahmo Samaj to promote spiritual inquiry, rational thought, and the study of the Upanishads.'
+    question: 'Which cell disorder in our body is responsible for colour blindness?',
+    options: ['WBC', 'Cone cell', 'Rod Cell', 'Neuron'],
+    correctOption: 1,
+    description: 'Colour blindness is caused by a disorder in the cone cells of the retina, which are responsible for detecting light and color.'
   },
   {
-    question: 'In which of the following animal phyla, is the body divided into head, thorax and abdomen?',
-    options: ['Annelida', 'Mollusca', 'Arthropoda', 'Chordata'],
-    correctOption: 2,
-    description: 'Arthropoda: This phylum includes animals like insects, crustaceans, and arachnids, and many of them (especially insects) show this clear tripartite body segmentation.'
-  },
-  {
-    question: 'Which state had the first female Governor in independent India?',
-    options: ['West Bengal', 'Rajasthan', 'Uttar Pradesh', 'Gujarat'],
-    correctOption: 2,
-    description: 'The first female Governor in independent India was Sarojini Naidu, who became the Governor of Uttar Pradesh in 1947.'
-  },
-  {
-    question: 'Who among the following was the head of the Diwan-i-Insha department under the Delhi sultanate?',
-    options: ['Dabir-i-Khas', 'Barid-i-Mumalik', 'Amir-i-Dad', 'Wakil-i-Dar'],
-    correctOption: 0,
-    description: 'The head of the Diwan-i-Insha department under the Delhi Sultanate was the Dabir-i-Khas (also known as Insha-i-Mahall).'
-  },
-  {
-    question: 'In which year did Antoine Lavoisier publish ‘Methods of Chemical Nomenclature’, which included the rules for naming chemical compounds that are still in use today?',
-    options: ['1783', '1780', '1790', '1787'],
+    question: 'Blood is red in colour due to the presence of __________.',
+    options: ['Cytochrome', 'Chlorophyll', 'Hemocyanin', 'Haemoglobin'],
     correctOption: 3,
-    description: 'Antoine Lavoisier published ‘Methods of Chemical Nomenclature’ in the year 1787. This work laid the foundation for the systematic naming of chemical compounds.'
+    description: 'Blood appears red due to the presence of haemoglobin, a protein in red blood cells that carries oxygen.'
+  },
+  {
+    question: 'Which one of the following events in a botanical garden is never directly influenced by light?',
+    options: ['Flowering', 'Photosynthesis', 'Transpiration', 'Fertilization'],
+    correctOption: 3,
+    description: 'Fertilization in plants does not directly depend on light, though light may indirectly influence it through plant growth and development.'
+  },
+  {
+    question: 'Which of the following is a fish?',
+    options: ['Jelly fish', 'Lobster', 'Salmon', 'Whale'],
+    correctOption: 2,
+    description: 'Salmon is a true fish, unlike jellyfish and lobsters, which are not considered fish, and whales, which are mammals.'
+  },
+  {
+    question: 'Which is used as an Air pollution indicator?',
+    options: ['Algae', 'Fungi', 'Bacteria', 'Lichens'],
+    correctOption: 3,
+    description: 'Lichens are commonly used as indicators of air pollution, as they are sensitive to changes in air quality, especially the presence of sulfur dioxide.'
   },
 ];
 
@@ -149,7 +148,7 @@ const QuizPage = () => {
         marginBottom: '30px',
         color: '#fff'
       }}>
-        🧠 General Quiz
+        🧠 Botany Quiz
       </div>
 
       {defaultQuestions.map((q, idx) => (
