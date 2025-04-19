@@ -30,6 +30,8 @@
     cursor: pointer;
     color: white;
     transition: 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .navbarLinks li a {
@@ -115,4 +117,52 @@
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1000;
+}
+
+/* Common button style for navbar links */
+.navbarButton {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: 0.3s ease;
+    padding: 0;
+    text-align: left;
+    
+}
+
+.navbarButton:hover {
+    color: #ffd700;
+}
+
+/* Profile icon styling */
+.profileIcon {
+    box-sizing: border-box;
+    background-color: #ffd700;
+    color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Sidebar buttons should match links */
+.sidebarButton {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+}
+
+.sidebarButton:hover {
+    color: #ffd700;
 }

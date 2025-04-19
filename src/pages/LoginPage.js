@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../styles/RegisterPage.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 function LoginPage() {
     const [form, setForm] = useState({ email: '', password: '' });
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -35,7 +37,7 @@ function LoginPage() {
             const data = await response.json();
             console.log(data);
             if (!response.ok) throw new Error(data.message || 'Login failed');
-
+            login({ email });
             setMessage('Login successful!');
             navigate('/'); // Or wherever you want to go after login
         } catch (error) {
