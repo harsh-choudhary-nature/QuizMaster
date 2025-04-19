@@ -79,7 +79,8 @@ function RegisterPage() {
 
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || 'Registration failed');
-      navigate('/');
+      alert('Registration successful! Please log in.');
+      navigate('/auth/login'); // Redirect to login page after successful registration
     } catch (error) {
       setMessage(error.message);
     } finally {

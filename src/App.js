@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <QuizPage />
             )} />
           <Route path="/auth/register" element={<RegisterPage />} />
+          <Route path="/auth/login" element={<LoginPage />} />
         </Routes>
       </div>
       <Analytics />
