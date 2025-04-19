@@ -3,38 +3,38 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 5; // Increment this manually when you release a new set
+const QUIZ_VERSION = 6; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Which cell disorder in our body is responsible for colour blindness?',
-    options: ['WBC', 'Cone cell', 'Rod Cell', 'Neuron'],
-    correctOption: 1,
-    description: 'Colour blindness is caused by a disorder in the cone cells of the retina, which are responsible for detecting light and color.'
-  },
-  {
-    question: 'Blood is red in colour due to the presence of __________.',
-    options: ['Cytochrome', 'Chlorophyll', 'Hemocyanin', 'Haemoglobin'],
-    correctOption: 3,
-    description: 'Blood appears red due to the presence of haemoglobin, a protein in red blood cells that carries oxygen.'
-  },
-  {
-    question: 'Which one of the following events in a botanical garden is never directly influenced by light?',
-    options: ['Flowering', 'Photosynthesis', 'Transpiration', 'Fertilization'],
-    correctOption: 3,
-    description: 'Fertilization in plants does not directly depend on light, though light may indirectly influence it through plant growth and development.'
-  },
-  {
-    question: 'Which of the following is a fish?',
-    options: ['Jelly fish', 'Lobster', 'Salmon', 'Whale'],
+    question: 'The government has announced plans to set up the second National Gene Bank (NGB). Where is India\'s first NGB located?',
+    options: ['Hyderabad', 'Ahmedabad', 'New Delhi', 'Lucknow'],
     correctOption: 2,
-    description: 'Salmon is a true fish, unlike jellyfish and lobsters, which are not considered fish, and whales, which are mammals.'
+    description: 'India\'s first National Gene Bank (NGB) is located at the National Bureau of Plant Genetic Resources (NBPGR) in New Delhi.'
   },
   {
-    question: 'Which is used as an Air pollution indicator?',
-    options: ['Algae', 'Fungi', 'Bacteria', 'Lichens'],
-    correctOption: 3,
-    description: 'Lichens are commonly used as indicators of air pollution, as they are sensitive to changes in air quality, especially the presence of sulfur dioxide.'
+    question: 'Gujarat International Finance Tec-City (GIFT City) has improved its ranking in the Global Financial Centres Index. The overall rank of GIFT City has increased from 52 to _____.',
+    options: ['45', '46', '47', '48'],
+    correctOption: 1,
+    description: 'In the 37th edition of the Global Financial Centres Index (GFCI) published in March 2025, Gujarat International Finance Tec-City (GIFT City) improved its overall ranking from 52nd to 46th place.'
+  },
+  {
+    question: 'The government increased MGNREGS wages by 2-7% for FY26. Haryana will see the highest increase of ______.',
+    options: ['₹16', '₹26', '₹36', '₹46'],
+    correctOption: 1,
+    description: 'For the financial year 2025–26, the Government of India increased wages under the Mahatma Gandhi National Rural Employment Guarantee Scheme (MGNREGS) by 2–7%. Haryana recorded the highest absolute increase of ₹26, raising the daily wage from ₹374 to ₹400. This marks the first time any state has reached the ₹400 per day threshold under MGNREGS.'
+  },
+  {
+    question: 'Which state has recently been awarded by the Union Ministry of Health and Family Welfare (MoHFW) for its outstanding performance in the TB free India campaign?',
+    options: ['Tripura', 'Sikkim', 'Madhya Pradesh', 'Maharashtra'],
+    correctOption: 0,
+    description: 'Tripura was recently awarded by the Union Ministry of Health and Family Welfare (MoHFW) for its outstanding performance in the TB Free India campaign. The award was given on World TB Day, recognizing the state\'s progress in combating tuberculosis.'
+  },
+  {
+    question: 'Where was the Tri-Services Desert Hunt 2025 exercise held?',
+    options: ['Auli, Uttarakhand', 'Jodhpur, Rajasthan', 'Bhubaneswar, Odisha', 'Umroi, Meghalaya'],
+    correctOption: 1,
+    description: 'The Tri-Services Desert Hunt 2025 exercise was conducted at Air Force Station Jodhpur, Rajasthan, from February 24 to 28, 2025. This exercise involved the Indian Army, Indian Navy, and Indian Air Force and was aimed at enhancing joint operational capabilities in desert terrain.'
   },
 ];
 
@@ -148,7 +148,7 @@ const QuizPage = () => {
         marginBottom: '30px',
         color: '#fff'
       }}>
-        🧠 Botany Quiz
+        🧠 Current Affairs
       </div>
 
       {defaultQuestions.map((q, idx) => (
