@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import Blogs from './pages/Blogs';
 import CreateBlog from './pages/CreateBlog';
 import BlogDetail from './pages/BlogDetail';
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/create" element={<CreateBlog />} />
           <Route path="/blogs/:id" element={<BlogDetail />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
       <Analytics />
