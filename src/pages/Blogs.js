@@ -18,7 +18,7 @@ const Blogs = () => {
         const fetchBlogs = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`http://localhost:5000/api/blogs?page=${page}`);
+                const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogs?page=${page}`);
                 if (!res.ok) {
                     throw new Error('Unable to fetch blogs');
                 }
