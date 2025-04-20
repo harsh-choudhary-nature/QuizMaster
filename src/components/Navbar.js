@@ -18,7 +18,7 @@ export default function Navbar() {
         if (!confirm) return;
 
         try {
-            const res = await fetch('http://localhost:5000/delete-account', {
+            const res = await fetch('http://localhost:5000/api/users/delete-account', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: user.email })
