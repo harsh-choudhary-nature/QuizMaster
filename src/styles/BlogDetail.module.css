@@ -1,0 +1,84 @@
+/* src/styles/BlogDetail.module.css */
+
+.container {
+    /* max-width: 800px; */
+    margin: 40px auto 40px;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 72px);
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    word-break: break-word;
+}
+
+.meta {
+    font-size: 0.95rem;
+    color: #cccccc;
+    margin-bottom: 1.5rem;
+    word-break: break-word;
+}
+
+.markdown {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #eeeeee;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.actions button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: default;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.actions button:hover {
+    background-color: #444;
+}
+
+.likeDislikeButton {
+    background-color: #ffcc00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.likeDislikeButton:hover {
+    background-color: #e6b800;
+}
+
+.loading,
+.error {
+    margin-top: 150px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff6666;
+}
