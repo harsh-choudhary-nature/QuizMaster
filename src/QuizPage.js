@@ -3,38 +3,38 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 6; // Increment this manually when you release a new set
+const QUIZ_VERSION = 7; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'The government has announced plans to set up the second National Gene Bank (NGB). Where is India\'s first NGB located?',
-    options: ['Hyderabad', 'Ahmedabad', 'New Delhi', 'Lucknow'],
+    question: 'Which team has won the 2024-25 Ranji Trophy?',
+    options: ['Karnataka', 'Vidarbha', 'Kerala', 'Mumbai'],
+    correctOption: 1,
+    description: 'The winner of the 2024–25 Ranji Trophy is Vidarbha. They secured the title by taking a first-innings lead over Kerala in the final held at the Vidarbha Cricket Association Ground in Nagpur. Although the match ended in a draw, Vidarbha\'s superior first-innings performance ensured their victory.'
+  },
+  {
+    question: 'Who has recently been appointed as the Controller General of Defence Accounts?',
+    options: ['Rajiv Sinha', 'Dr. Mayank Sharma', 'Abhay Saxena', 'Vinod Kumar'],
+    correctOption: 1,
+    description: 'Dr. Mayank Sharma, a 1989-batch officer of the Indian Defence Accounts Service (IDAS), assumed the office of Controller General of Defence Accounts (CGDA) on March 1, 2025.'
+  },
+  {
+    question: 'Who won the Best Picture award at the 97th Academy Awards?',
+    options: ['The Brutalist', 'Lapta Ladies', 'Anora', 'None of these'],
     correctOption: 2,
-    description: 'India\'s first National Gene Bank (NGB) is located at the National Bureau of Plant Genetic Resources (NBPGR) in New Delhi.'
+    description: 'At the 97th Academy Awards held on March 2, 2025, Anora won the Best Picture award. Directed by Sean Baker, the film also secured four other Oscars: Best Director, Best Actress (Mikey Madison), Best Original Screenplay, and Best Film Editing.'
   },
   {
-    question: 'Gujarat International Finance Tec-City (GIFT City) has improved its ranking in the Global Financial Centres Index. The overall rank of GIFT City has increased from 52 to _____.',
-    options: ['45', '46', '47', '48'],
-    correctOption: 1,
-    description: 'In the 37th edition of the Global Financial Centres Index (GFCI) published in March 2025, Gujarat International Finance Tec-City (GIFT City) improved its overall ranking from 52nd to 46th place.'
+    question: 'In which year was the first Zero Discrimination Day celebration celebrated?',
+    options: ['2012', '2013', '2014', '2015'],
+    correctOption: 2,
+    description: 'Zero Discrimination Day was first celebrated on March 1, 2014. It was launched by UNAIDS Executive Director Michel Sidibé with a major event in Beijing on February 27, 2014.'
   },
   {
-    question: 'The government increased MGNREGS wages by 2-7% for FY26. Haryana will see the highest increase of ______.',
-    options: ['₹16', '₹26', '₹36', '₹46'],
-    correctOption: 1,
-    description: 'For the financial year 2025–26, the Government of India increased wages under the Mahatma Gandhi National Rural Employment Guarantee Scheme (MGNREGS) by 2–7%. Haryana recorded the highest absolute increase of ₹26, raising the daily wage from ₹374 to ₹400. This marks the first time any state has reached the ₹400 per day threshold under MGNREGS.'
-  },
-  {
-    question: 'Which state has recently been awarded by the Union Ministry of Health and Family Welfare (MoHFW) for its outstanding performance in the TB free India campaign?',
-    options: ['Tripura', 'Sikkim', 'Madhya Pradesh', 'Maharashtra'],
+    question: 'Which international organization declared March 3 as World Wildlife Day?',
+    options: ['United Nations General Assembly', 'World Bank', 'UNESCO', 'International Monetary Fund'],
     correctOption: 0,
-    description: 'Tripura was recently awarded by the Union Ministry of Health and Family Welfare (MoHFW) for its outstanding performance in the TB Free India campaign. The award was given on World TB Day, recognizing the state\'s progress in combating tuberculosis.'
-  },
-  {
-    question: 'Where was the Tri-Services Desert Hunt 2025 exercise held?',
-    options: ['Auli, Uttarakhand', 'Jodhpur, Rajasthan', 'Bhubaneswar, Odisha', 'Umroi, Meghalaya'],
-    correctOption: 1,
-    description: 'The Tri-Services Desert Hunt 2025 exercise was conducted at Air Force Station Jodhpur, Rajasthan, from February 24 to 28, 2025. This exercise involved the Indian Army, Indian Navy, and Indian Air Force and was aimed at enhancing joint operational capabilities in desert terrain.'
+    description: 'On December 20, 2013, during its 68th session, the United Nations General Assembly proclaimed March 3 as World Wildlife Day to celebrate and raise awareness of the world\'s wild fauna and flora.'
   },
 ];
 
