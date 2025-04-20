@@ -1,0 +1,26 @@
+/* src/components/FloatingButton.module.css */
+
+.floatingButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #ffd700;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 1005;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.floatingButton:hover {
+    background-color: #ffcc00;
+}
