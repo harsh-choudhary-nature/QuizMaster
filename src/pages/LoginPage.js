@@ -36,7 +36,7 @@ function LoginPage() {
             if (!response.ok) throw new Error(data.message || 'Login failed');
             login({ email, username: data.username });
             setMessage('Login successful!');
-            navigate('/'); // Or wherever you want to go after login
+            navigate('/blogs'); // Or wherever you want to go after login
         } catch (error) {
             setMessage(error.message);
         } finally {

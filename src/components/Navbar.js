@@ -40,7 +40,7 @@ export default function Navbar() {
             <nav className={styles.navbar}>
                 <div className={styles.navbarBrand}>WittyWhiz</div>
                 <ul className={styles.navbarLinks}>
-                    <li key='Games'><Link to='/games' className={styles.navbarLink}>Games</Link></li>
+                    <li key='Games'><Link to='/' className={styles.navbarLink}>Games</Link></li>
                     <li key='Blogs'><Link to='/blogs' className={styles.navbarLink}>Blogs</Link></li>
                     {user ? (
                         <>
@@ -69,7 +69,7 @@ export default function Navbar() {
                             <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>&times;</button>
                         </div>
                         <ul className={styles.sidebarLinks}>
-                            <li key='Games'><Link to='/games' className={styles.navbarLink}>Games</Link></li>
+                            <li key='Games'><Link to='/' className={styles.navbarLink}>Games</Link></li>
                             <li key='Blogs'><Link to='/blogs' className={styles.navbarLink}>Blogs</Link></li>
                             {user ? (
                                 <>
