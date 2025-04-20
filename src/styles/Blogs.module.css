@@ -1,0 +1,46 @@
+/* src/styles/Blogs.module.css */
+.container {
+    padding: 2rem 1.5rem 2rem;
+    margin-top: 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: calc(100vh - 72px);
+}
+
+.heading {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+}
+
+.errorMessage,
+.loadingMessage {
+    color: #ff6f61;
+    font-size: 1rem;
+}
+
+.loadingMessage {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.blogCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.blogPagination {
+    margin-top: 2rem;
+}
+
+.errorMessage {
+    color: #ff6f61;
+    font-size: 1rem;
+    text-align: center;
+}

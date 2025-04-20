@@ -1,21 +1,21 @@
-// src/components/BlogPagination.js
 import React from 'react';
+import styles from '../styles/BlogPagination.module.css';
 
 const BlogPagination = ({ page, setPage, totalPages }) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem', gap: '1rem' }}>
+    <div className={styles.paginationContainer}>
       <button 
         disabled={page <= 1} 
         onClick={() => setPage(p => p - 1)} 
-        className="navbarButton"
+        className={styles.paginationButton}
       >
         Prev
       </button>
-      <span style={{ color: 'white' }}>Page {page} of {totalPages}</span>
+      <span className={styles.pageText}>Page {page} of {totalPages}</span>
       <button 
         disabled={page >= totalPages} 
         onClick={() => setPage(p => p + 1)} 
-        className="navbarButton"
+        className={styles.paginationButton}
       >
         Next
       </button>
