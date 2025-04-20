@@ -32,12 +32,9 @@ function LoginPage() {
                 body: JSON.stringify(form),
             });
 
-            console.log('Raw response:', response);
-
             const data = await response.json();
-            console.log(data);
             if (!response.ok) throw new Error(data.message || 'Login failed');
-            login({ email });
+            login({ email, username: data.username });
             setMessage('Login successful!');
             navigate('/'); // Or wherever you want to go after login
         } catch (error) {

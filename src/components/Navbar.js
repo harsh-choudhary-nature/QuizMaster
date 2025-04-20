@@ -46,7 +46,7 @@ export default function Navbar() {
                         <>
                             <li key='Logout'><button onClick={handleLogout} className={styles.navbarButton}>Logout</button></li>
                             <li key='Delete'><button onClick={handleDelete} className={styles.navbarButton}>Delete Account</button></li>
-                            <li key='Profile'><Link to='/profile' className={styles.navbarLink}><div className={styles.profileIcon}>{user.email[0].toUpperCase()}</div></Link></li>
+                            <li key='Profile'><Link to='/profile' className={styles.navbarLink}><div className={styles.profileIcon}>{user.username[0].toUpperCase()}</div></Link></li>
                         </>
                     ) : (
                         <>
@@ -75,7 +75,7 @@ export default function Navbar() {
                                 <>
                                     <li key='Logout'><button onClick={handleLogout} className={styles.navbarButton}>Logout</button></li>
                                     <li key='Delete'><button onClick={handleDelete} className={styles.navbarButton}>Delete Account</button></li>
-                                    <li key='Profile'><Link to='/profile' className={styles.navbarLink}><div className={styles.profileIcon}>{user.email[0].toUpperCase()}</div></Link></li>
+                                    <li key='Profile'><Link to='/profile' className={styles.navbarLink}><div className={styles.profileIcon}>{user.username[0].toUpperCase()}</div></Link></li>
                                 </>
                             ) : (
                                 <>
