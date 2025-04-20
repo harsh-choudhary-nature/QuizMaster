@@ -8,6 +8,7 @@
     padding: 1rem;
     box-sizing: border-box;
     width: 100%;
+    overflow: auto;
 }
 
 .editorContainer {
@@ -16,15 +17,14 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     height: 400px;
+    min-height: 20vh;
     border: 1px solid #444;
     border-radius: 4px;
-    overflow: hidden;
 }
 
 .editorPane {
     flex: 1;
     background-color: #2a2a2a;
-    /* padding: 1rem; */
     color: white;
 }
 
@@ -37,6 +37,7 @@
     color: inherit;
     font-size: 1rem;
     outline: none;
+    box-sizing: border-box;
 }
 
 .divider {
@@ -57,7 +58,7 @@
 @media (max-width: 768px) {
     .editorContainer {
         flex-direction: column;
-        height: auto;
+        min-height: 40vh;
     }
 
     .divider {
