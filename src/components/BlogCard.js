@@ -12,7 +12,7 @@ const BlogCard = ({ blog }) => {
       <div className={styles.meta}>
         <span>👍 {blog.likes}</span>
         <span style={{ marginLeft: '1rem' }}>👎 {blog.dislikes}</span>
-        <span style={{ marginLeft: '1rem' }}>📧 {blog.email}</span>
+        {/* <span style={{ marginLeft: '1rem' }}>📧 {blog.email}</span> */}
       </div>
       <div className={styles.keywords}>
         {blog.keywords.map(k => `#${k}`).join(' ')}

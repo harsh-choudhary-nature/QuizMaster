@@ -48,7 +48,7 @@ const BlogDetail = () => {
         <div className={styles.container}>
             <h1 className={styles.title}>{blog.title}</h1>
             <p className={styles.meta}>
-                ✍️ {blog.username} ({blog.email}) | 🔑 {blog.keywords.map(k => `#${k}`).join(' ')}
+                ✍️ {blog.username} {/*({blog.email})*/} | 🔑 {blog.keywords.map(k => `#${k}`).join(' ')}
             </p>
             <div className={styles.markdown}>
                 <ReactMarkdown>{blog.content}</ReactMarkdown>
