@@ -3,38 +3,38 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 7; // Increment this manually when you release a new set
+const QUIZ_VERSION = 8; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Which team has won the 2024-25 Ranji Trophy?',
-    options: ['Karnataka', 'Vidarbha', 'Kerala', 'Mumbai'],
-    correctOption: 1,
-    description: 'The winner of the 2024–25 Ranji Trophy is Vidarbha. They secured the title by taking a first-innings lead over Kerala in the final held at the Vidarbha Cricket Association Ground in Nagpur. Although the match ended in a draw, Vidarbha\'s superior first-innings performance ensured their victory.'
-  },
-  {
-    question: 'Who has recently been appointed as the Controller General of Defence Accounts?',
-    options: ['Rajiv Sinha', 'Dr. Mayank Sharma', 'Abhay Saxena', 'Vinod Kumar'],
-    correctOption: 1,
-    description: 'Dr. Mayank Sharma, a 1989-batch officer of the Indian Defence Accounts Service (IDAS), assumed the office of Controller General of Defence Accounts (CGDA) on March 1, 2025.'
-  },
-  {
-    question: 'Who won the Best Picture award at the 97th Academy Awards?',
-    options: ['The Brutalist', 'Lapta Ladies', 'Anora', 'None of these'],
+    question: 'How many new spiritual corridors have been announced by Uttar Pradesh Chief Minister Yogi Adityanath in the state?',
+    options: ['seven', 'eight', 'five', 'four'],
     correctOption: 2,
-    description: 'At the 97th Academy Awards held on March 2, 2025, Anora won the Best Picture award. Directed by Sean Baker, the film also secured four other Oscars: Best Director, Best Actress (Mikey Madison), Best Original Screenplay, and Best Film Editing.'
+    description: 'Five new spiritual corridors were announced by Uttar Pradesh Chief Minister Yogi Adityanath after the successful conduct of Maha Kumbh 2025.'
   },
   {
-    question: 'In which year was the first Zero Discrimination Day celebration celebrated?',
-    options: ['2012', '2013', '2014', '2015'],
+    question: 'Vantara has been inaugurated by PM Modi on 4 March 2025. It is located in which of the following states?',
+    options: ['Maharashtra', 'Madhya Pradesh', 'Gujarat', 'Karnataka'],
     correctOption: 2,
-    description: 'Zero Discrimination Day was first celebrated on March 1, 2014. It was launched by UNAIDS Executive Director Michel Sidibé with a major event in Beijing on February 27, 2014.'
+    description: 'Vantara, a sprawling green sanctuary and rehabilitation center for animals, was inaugurated by Prime Minister Narendra Modi on March 4, 2025, in Gujarat. The project aims to rescue, treat, and rehabilitate wildlife.'
   },
   {
-    question: 'Which international organization declared March 3 as World Wildlife Day?',
-    options: ['United Nations General Assembly', 'World Bank', 'UNESCO', 'International Monetary Fund'],
-    correctOption: 0,
-    description: 'On December 20, 2013, during its 68th session, the United Nations General Assembly proclaimed March 3 as World Wildlife Day to celebrate and raise awareness of the world\'s wild fauna and flora.'
+    question: 'India emerges as __________ largest biofuel producer in the world',
+    options: ['second', 'fourth', 'fifth', 'third'],
+    correctOption: 3,
+    description: 'India has become the third-largest biofuel producer globally, underscoring the nation’s growing focus on sustainable energy solutions and reduction of fossil fuel dependence.'
+  },
+  {
+    question: 'When is National Safety Day celebrated every year?',
+    options: ['March 3', 'March 6', 'March 4', 'March 5'],
+    correctOption: 2,
+    description: 'National Safety Day is celebrated on March 4 every year in India to raise awareness about safety measures and accident prevention in workplaces and daily life.'
+  },
+  {
+    question: 'Who became the new President of Uruguay?',
+    options: ['Jose Mujika', 'Luis Lackel Pou', 'Yamandu Orsi', 'Jomo Kenyatta'],
+    correctOption: 2,
+    description: 'Yamandu Orsi was elected as the new President of Uruguay. He succeeded Luis Lacalle Pou and represents the Broad Front party, with a focus on social policies and economic reforms.'
   },
 ];
 
