@@ -54,6 +54,11 @@
     text-align: left;
 }
 
+.previewPane a {
+    color: inherit;        /* Use the surrounding text color */
+    text-decoration: underline;
+  }
+
 /* Responsive stacking */
 @media (max-width: 768px) {
     .editorContainer {

@@ -7,7 +7,8 @@ const BlogCard = ({ blog }) => {
 
   return (
     <div className={styles.card} onClick={() => navigate(`/blogs/${blog._id}`)}>
-      <h2 className={styles.title}>{blog.username}</h2>
+      <p className={styles.title}>{blog.title.slice(0, 100)}...</p>
+      <h2 className={styles.subtitle}>{blog.username}</h2>
       <p className={styles.snippet}>{blog.content.slice(0, 100)}...</p>
       <div className={styles.meta}>
         <span>👍 {blog.likes}</span>

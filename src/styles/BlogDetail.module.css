@@ -39,6 +39,11 @@
     overflow-x: auto;
 }
 
+.markdown a {
+    color: inherit;        /* Use the surrounding text color */
+    text-decoration: underline;
+  }
+
 .actions {
     margin-top: 2rem;
     display: flex;

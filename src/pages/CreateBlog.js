@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/CreateBlog.module.css';
 import Select from 'react-select';
 import keywordsOptions from '../data/keywordsOptions';
-
+import remarkGfm from 'remark-gfm';
 
 const CreateBlog = () => {
     const { user } = useAuth();
@@ -145,7 +145,7 @@ const CreateBlog = () => {
                 </div>
                 <div className={styles.divider}></div>
                 <div className={styles.previewPane}>
-                    <ReactMarkdown>{markdown}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
                 </div>
             </div>
 

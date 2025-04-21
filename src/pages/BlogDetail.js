@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 // import { useAuth } from '../contexts/AuthContext';
 import ReactMarkdown from 'react-markdown';
 import styles from '../styles/BlogDetail.module.css';
+import remarkGfm from 'remark-gfm';
 
 const BlogDetail = () => {
     const { id } = useParams();
@@ -51,7 +52,7 @@ const BlogDetail = () => {
                 ✍️ {blog.username} {/*({blog.email})*/} | 🔑 {blog.keywords.map(k => `#${k}`).join(' ')}
             </p>
             <div className={styles.markdown}>
-                <ReactMarkdown>{blog.content}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{blog.content}</ReactMarkdown>
             </div>
             <div className={styles.actions}>
                 <button className={styles.likeDislikeButton} title="Feature not implemented">👍 {blog.likes}</button>
