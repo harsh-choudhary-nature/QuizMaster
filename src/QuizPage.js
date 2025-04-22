@@ -3,38 +3,43 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 8; // Increment this manually when you release a new set
+const QUIZ_VERSION = 9; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'How many new spiritual corridors have been announced by Uttar Pradesh Chief Minister Yogi Adityanath in the state?',
-    options: ['seven', 'eight', 'five', 'four'],
-    correctOption: 2,
-    description: 'Five new spiritual corridors were announced by Uttar Pradesh Chief Minister Yogi Adityanath after the successful conduct of Maha Kumbh 2025.'
+    question: 'Which public sector company has been granted the status of the 25th Navratna Central Public Sector Enterprise (CPSE)?',
+    options: ['IRCTC', 'IRFC', 'SJVN', 'NHPC'],
+    correctOption: 0,
+    description: 'The public sector company granted Navratna status as the 25th Central Public Sector Enterprise (CPSE) is Indian Railway Catering and Tourism Corporation (IRCTC). The upgrade was approved by the Centre on March 3, 2025. Additionally, Indian Railway Finance Corporation (IRFC) was also granted Navratna status, making it the 26th Navratna CPSE.'
   },
   {
-    question: 'Vantara has been inaugurated by PM Modi on 4 March 2025. It is located in which of the following states?',
-    options: ['Maharashtra', 'Madhya Pradesh', 'Gujarat', 'Karnataka'],
-    correctOption: 2,
-    description: 'Vantara, a sprawling green sanctuary and rehabilitation center for animals, was inaugurated by Prime Minister Narendra Modi on March 4, 2025, in Gujarat. The project aims to rescue, treat, and rehabilitate wildlife.'
-  },
-  {
-    question: 'India emerges as __________ largest biofuel producer in the world',
-    options: ['second', 'fourth', 'fifth', 'third'],
+    question: "'Diyasalai' is the autobiography of whom?",
+    options: ['Namita Gokhale', 'Arun Shourie', 'Amitabh Kant', 'Kailash Satyarthi'],
     correctOption: 3,
-    description: 'India has become the third-largest biofuel producer globally, underscoring the nation’s growing focus on sustainable energy solutions and reduction of fossil fuel dependence.'
+    description: "'Diyaslai' is the autobiography of Kailash Satyarthi, a Nobel Peace Prize laureate and social reformer. The book is a Hindi autobiography that details Satyarthi's life, his activism against child labor, and his efforts to promote education and global compassion."
   },
   {
-    question: 'When is National Safety Day celebrated every year?',
-    options: ['March 3', 'March 6', 'March 4', 'March 5'],
-    correctOption: 2,
-    description: 'National Safety Day is celebrated on March 4 every year in India to raise awareness about safety measures and accident prevention in workplaces and daily life.'
+    question: 'Who became the first woman from India to cross 16 meters in indoor shot put?',
+    options: ['Krishna Jaishankar', 'Purnarao Rane', 'Abha Khatua', 'None of these'],
+    correctOption: 0,
+    description: 'Krishna Jayasankar was the first Indian woman to cross the 16-meter mark in indoor shot put. She achieved this feat at the Mountain West Indoor Track and Field Championships 2025 in Albuquerque, USA, with a throw of 16.03 meters, also setting a new national record.'
   },
   {
-    question: 'Who became the new President of Uruguay?',
-    options: ['Jose Mujika', 'Luis Lackel Pou', 'Yamandu Orsi', 'Jomo Kenyatta'],
-    correctOption: 2,
-    description: 'Yamandu Orsi was elected as the new President of Uruguay. He succeeded Luis Lacalle Pou and represents the Broad Front party, with a focus on social policies and economic reforms.'
+    question: 'India can include Tamal in its navy by June 2025. What is Tamal?',
+    options: [
+      'Tamal is the new book by Booker Prize-winning author Arundhati Roy.',
+      'It is a multi-role stealth guided missile frigate.',
+      'It is a bulletproof jacket developed by the Defence Research and Development Organisation (DRDO).',
+      'It is the first supercomputer made in India.'
+    ],
+    correctOption: 1,
+    description: "Tamal is a multi-role stealth guided missile frigate that India plans to include in its navy by June 2025, enhancing maritime defense capabilities."
+  },
+  {
+    question: 'The Govindghat to Hemkund Sahib Jee ropeway project was approved by the Centre, it is in which state?',
+    options: ['Himachal Pradesh', 'Uttarakhand', 'Arunachal Pradesh', 'Sikkim'],
+    correctOption: 1,
+    description: 'The Govindghat to Hemkund Sahib ropeway project, aimed at improving connectivity to the revered Sikh pilgrimage site, is located in Uttarakhand.'
   },
 ];
 
