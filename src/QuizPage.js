@@ -3,53 +3,48 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 9; // Increment this manually when you release a new set
+const QUIZ_VERSION = 10; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Which public sector company has been granted the status of the 25th Navratna Central Public Sector Enterprise (CPSE)?',
-    options: ['IRCTC', 'IRFC', 'SJVN', 'NHPC'],
-    correctOption: 0,
-    description: 'The public sector company granted Navratna status as the 25th Central Public Sector Enterprise (CPSE) is Indian Railway Catering and Tourism Corporation (IRCTC). The upgrade was approved by the Centre on March 3, 2025. Additionally, Indian Railway Finance Corporation (IRFC) was also granted Navratna status, making it the 26th Navratna CPSE.'
+    question: 'Who has been awarded the Pritzker Prize 2025?',
+    options: ['Riken Yamamoto', 'Liu Jiacun', 'David Chipperfield', 'Balkrishna Doshi'],
+    correctOption: 1,
+    description: 'The 2025 Pritzker Architecture Prize was awarded to Chinese architect Liu Jiakun.'
   },
   {
-    question: "'Diyasalai' is the autobiography of whom?",
-    options: ['Namita Gokhale', 'Arun Shourie', 'Amitabh Kant', 'Kailash Satyarthi'],
+    question: 'Who has recently been appointed as the CEO of Government e-Marketplace (GeM)?',
+    options: ['Ved Prakash Goyal', 'Ajay Khanna', 'Ajay Bhadoo', 'Rajiv Kumar'],
+    correctOption: 2,
+    description: 'Ajay Bhadoo, a senior bureaucrat, has been appointed as the CEO of Government e-Marketplace (GeM), a platform that facilitates procurement of goods and services by government departments and organizations.'
+  },
+  {
+    question: 'The US will impose reciprocal tariffs against _______ and ___________ from April 2.',
+    options: ['India & China', 'China & Pakistan', 'China and Russia', 'Cuba and India'],
+    correctOption: 0,
+    description: 'Starting April 2, the United States announced it will impose reciprocal tariffs against China and India in response to unfair trade practices.'
+  },
+  {
+    question: 'According to the 19th Wealth Report 2025, India has emerged as the fourth-largest global wealth centre in the world. Who issues this wealth report?',
+    options: ['Knight Frank', 'Concern Worldwide and Welthungerhilf', 'Henley & Partners', 'World Bank'],
+    correctOption: 0,
+    description: 'The 19th Wealth Report 2025, issued by global real estate consultancy Knight Frank, highlights India as the fourth-largest global wealth centre, reflecting the country\'s economic growth and increasing number of ultra-high-net-worth individuals.'
+  },
+  {
+    question: 'Which Australian cricketer has announced his retirement from ODI cricket on 4th March?',
+    options: ['Travis Head', 'Phillip Hughes', 'Glenn Maxwell', 'Steve Smith'],
     correctOption: 3,
-    description: "'Diyaslai' is the autobiography of Kailash Satyarthi, a Nobel Peace Prize laureate and social reformer. The book is a Hindi autobiography that details Satyarthi's life, his activism against child labor, and his efforts to promote education and global compassion."
-  },
-  {
-    question: 'Who became the first woman from India to cross 16 meters in indoor shot put?',
-    options: ['Krishna Jaishankar', 'Purnarao Rane', 'Abha Khatua', 'None of these'],
-    correctOption: 0,
-    description: 'Krishna Jayasankar was the first Indian woman to cross the 16-meter mark in indoor shot put. She achieved this feat at the Mountain West Indoor Track and Field Championships 2025 in Albuquerque, USA, with a throw of 16.03 meters, also setting a new national record.'
-  },
-  {
-    question: 'India can include Tamal in its navy by June 2025. What is Tamal?',
-    options: [
-      'Tamal is the new book by Booker Prize-winning author Arundhati Roy.',
-      'It is a multi-role stealth guided missile frigate.',
-      'It is a bulletproof jacket developed by the Defence Research and Development Organisation (DRDO).',
-      'It is the first supercomputer made in India.'
-    ],
-    correctOption: 1,
-    description: "Tamal is a multi-role stealth guided missile frigate that India plans to include in its navy by June 2025, enhancing maritime defense capabilities."
-  },
-  {
-    question: 'The Govindghat to Hemkund Sahib Jee ropeway project was approved by the Centre, it is in which state?',
-    options: ['Himachal Pradesh', 'Uttarakhand', 'Arunachal Pradesh', 'Sikkim'],
-    correctOption: 1,
-    description: 'The Govindghat to Hemkund Sahib ropeway project, aimed at improving connectivity to the revered Sikh pilgrimage site, is located in Uttarakhand.'
+    description: 'Steve Smith announced his retirement from One-Day International (ODI) cricket on March 4, 2025, following Australia’s semi-final exit in the Champions Trophy. He concluded his ODI career with 5,800 runs in 170 matches, contributing significantly to Australia’s World Cup victories in 2015 and 2023.'
   },
 ];
 
 const QuizPage = () => {
-
+  
   const [userProgress, setUserProgress] = useState([]);
   const [score, setScore] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
-
-
+  
+  
   // Load progress on mount
   useEffect(() => {
     const savedVersion = localStorage.getItem(VERSION_KEY);
