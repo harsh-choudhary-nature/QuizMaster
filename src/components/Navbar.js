@@ -18,10 +18,13 @@ export default function Navbar() {
         if (!confirm) return;
 
         try {
+            const token = JSON.parse(localStorage.getItem('user'))?.token;
             const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/delete-account`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: user.email })
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
             });
 
             const data = await res.json();
