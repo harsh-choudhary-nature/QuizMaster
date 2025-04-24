@@ -31,7 +31,10 @@ const CreateBlog = () => {
         try {
             const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogs/create`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user?.token}`,
+                },            
                 body: JSON.stringify({
                     content: markdown,
                     username: user.username,
