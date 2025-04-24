@@ -34,7 +34,7 @@ function LoginPage() {
 
             const data = await response.json();
             if (!response.ok) throw new Error(data.message || 'Login failed');
-            login({ email, username: data.username });
+            login({ email, username: data.username, token: data.token });
             setMessage('Login successful!');
             navigate('/blogs'); // Or wherever you want to go after login
         } catch (error) {
