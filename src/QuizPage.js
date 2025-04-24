@@ -3,40 +3,41 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 10; // Increment this manually when you release a new set
+const QUIZ_VERSION = 11; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Who has been awarded the Pritzker Prize 2025?',
-    options: ['Riken Yamamoto', 'Liu Jiacun', 'David Chipperfield', 'Balkrishna Doshi'],
-    correctOption: 1,
-    description: 'The 2025 Pritzker Architecture Prize was awarded to Chinese architect Liu Jiakun.'
-  },
-  {
-    question: 'Who has recently been appointed as the CEO of Government e-Marketplace (GeM)?',
-    options: ['Ved Prakash Goyal', 'Ajay Khanna', 'Ajay Bhadoo', 'Rajiv Kumar'],
+    question: 'Where will India\'s first Integrated Active Pharmaceutical Ingredient (API), Green Hydrogen and 2G Ethanol project be set up?',
+    options: ['Jharkhand', 'Bihar', 'Himachal Pradesh', 'Tamil Nadu'],
     correctOption: 2,
-    description: 'Ajay Bhadoo, a senior bureaucrat, has been appointed as the CEO of Government e-Marketplace (GeM), a platform that facilitates procurement of goods and services by government departments and organizations.'
+    description: 'India\'s first integrated facility for Active Pharmaceutical Ingredient (API), Green Hydrogen, and 2G Ethanol will be set up in Una, Himachal Pradesh, marking a significant step in green energy and healthcare manufacturing.'
   },
   {
-    question: 'The US will impose reciprocal tariffs against _______ and ___________ from April 2.',
-    options: ['India & China', 'China & Pakistan', 'China and Russia', 'Cuba and India'],
-    correctOption: 0,
-    description: 'Starting April 2, the United States announced it will impose reciprocal tariffs against China and India in response to unfair trade practices.'
-  },
-  {
-    question: 'According to the 19th Wealth Report 2025, India has emerged as the fourth-largest global wealth centre in the world. Who issues this wealth report?',
-    options: ['Knight Frank', 'Concern Worldwide and Welthungerhilf', 'Henley & Partners', 'World Bank'],
-    correctOption: 0,
-    description: 'The 19th Wealth Report 2025, issued by global real estate consultancy Knight Frank, highlights India as the fourth-largest global wealth centre, reflecting the country\'s economic growth and increasing number of ultra-high-net-worth individuals.'
-  },
-  {
-    question: 'Which Australian cricketer has announced his retirement from ODI cricket on 4th March?',
-    options: ['Travis Head', 'Phillip Hughes', 'Glenn Maxwell', 'Steve Smith'],
+    question: 'Who among the following has received the EY Entrepreneur of the Year Award 2024?',
+    options: ['KV Kamath', 'Ritesh Agarwal', 'Tilak Mehta', 'Nitin Kamath'],
     correctOption: 3,
-    description: 'Steve Smith announced his retirement from One-Day International (ODI) cricket on March 4, 2025, following Australia’s semi-final exit in the Champions Trophy. He concluded his ODI career with 5,800 runs in 170 matches, contributing significantly to Australia’s World Cup victories in 2015 and 2023.'
+    description: 'Nitin Kamath, the founder of Zerodha, received the EY Entrepreneur of the Year Award 2024 for his contributions to transforming retail investing in India through innovation and transparency.'
+  },
+  {
+    question: 'Who is the world president of the World Sustainable Development Summit?',
+    options: ['United Nations Environment Programme', 'World Union for Conservation of Nature', 'The Energy and Resources Institute (TERI)', 'International Panel on Climate Change'],
+    correctOption: 2,
+    description: 'The Energy and Resources Institute (TERI) is the principal organizer of the World Sustainable Development Summit, where the director general of TERI acts as the global president for the summit events.'
+  },
+  {
+    question: 'What happened immediately after the Big Bang and which telescope is going to launch on March 7 to detect the reservoirs of water in the galaxy?',
+    options: ['James Webb Space Telescope', 'Hubble Space Telescope', 'Spherex', 'Chandra X-ray Observatory'],
+    correctOption: 2,
+    description: 'After the Big Bang, the universe rapidly expanded and cooled, forming the first atoms. NASA\'s Spherex telescope, set to launch on March 7, aims to study the origins of water and stars by conducting an infrared survey of the entire sky.'
+  },
+  {
+    question: 'Sharath Kamal has announced his retirement from which sport?',
+    options: ['tennis', 'badminton', 'hockey game', 'table tennis'],
+    correctOption: 3,
+    description: 'Indian table tennis legend Achanta Sharath Kamal announced his retirement from the sport, concluding a decorated career that includes multiple Commonwealth Games gold medals and a Padma Shri award.'
   },
 ];
+
 
 const QuizPage = () => {
   
