@@ -1,5 +1,5 @@
 // src/pages/CreateAndEditBlog.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useAuth } from '../contexts/AuthContext';
@@ -7,8 +7,11 @@ import styles from '../styles/CreateAndEditBlog.module.css';
 import Select from 'react-select';
 import keywordsOptions from '../data/keywordsOptions';
 import remarkGfm from 'remark-gfm';
+import { useParams } from 'react-router-dom';
 
-const CreateBlog = () => {
+const CreateAndEditBlog = () => {
+    const { id } = useParams();
+    const isEditMode = !!id;
     const { user } = useAuth();
     const navigate = useNavigate();
     const [markdown, setMarkdown] = useState('');
@@ -16,12 +19,55 @@ const CreateBlog = () => {
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const [title, setTitle] = useState('');
+    const [blogLoading, setBlogLoading] = useState(isEditMode);
+    const [initialError, setInitialError] = useState('');
+    
+    useEffect(() => {
+        if (isEditMode) {
+            const fetchBlog = async () => {
+                setBlogLoading(true);
+                try {
+                    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogs/${id}`, {
+                        headers: {
+                            Authorization: `Bearer ${user?.token}`,
+                        },
+                    });
+                    if (!res.ok) throw new Error('Failed to fetch blog');
+                    const data = await res.json();
+                    setTitle(data.title);
+                    setMarkdown(data.content);
+                    setKeywords(data.keywords.map(k => ({ label: k, value: k })));
+                } catch (err) {
+                    console.error('Failed to load blog for editing:', err);
+                    setInitialError('Something went wrong while fetching blog data.');
+                } finally {
+                    setBlogLoading(false);
+                }
+            };
+            fetchBlog();
+        }
+    }, [id, isEditMode, user?.token]);
 
     if (!user) {
         return <div className={styles.authWarning}>Please log in to create a blog.</div>;
     }
+    if (blogLoading) {
+        return (
+            <div className={styles.loadingContainer}>
+                <div className={styles.spinner}></div>
+                <p>Loading blog data...</p>
+            </div>
+        );
+    }
+    if (initialError) {
+        return (
+            <div className={styles.errorMsg}>
+                {initialError}
+            </div>
+        );
+    }
 
-    const handleCreate = async () => {
+    const handleSubmit = async () => {
         if (!title || !markdown || keywords.length === 0) {
             setErrorMsg('Please fill in all fields');
             return;
@@ -29,12 +75,16 @@ const CreateBlog = () => {
         setLoading(true);
         setErrorMsg('');
         try {
-            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogs/create`, {
-                method: 'POST',
+            const url = isEditMode
+            ? `${process.env.REACT_APP_BACKEND_URL}/api/blogs/${id}`
+            : `${process.env.REACT_APP_BACKEND_URL}/api/blogs/create`;
+            const method = isEditMode ? 'PUT' : 'POST';
+            const res = await fetch(url, {
+                method,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${user?.token}`,
-                },            
+                },
                 body: JSON.stringify({
                     content: markdown,
                     username: user.username,
@@ -112,7 +162,8 @@ const CreateBlog = () => {
 
     return (
         <div className={styles.container}>
-            <h2>Create a Blog</h2>
+            <h2>{isEditMode ? 'Edit Blog' : 'Create a Blog'}</h2>
+
 
             {/* Title Input */}
             <div className={styles.inputField}>
@@ -152,12 +203,12 @@ const CreateBlog = () => {
                 </div>
             </div>
 
-            <button className={styles.createBtn} onClick={handleCreate} disabled={loading}>
-                {loading ? 'Creating...' : 'Create Blog'}
+            <button className={styles.createBtn} onClick={handleSubmit} disabled={loading}>
+                {loading ? (isEditMode ? 'Saving...' : 'Creating...') : isEditMode ? 'Save Changes' : 'Create Blog'}
             </button>
             {errorMsg && <div className={styles.errorMsg}>{errorMsg}</div>}
         </div>
     );
 };
 
-export default CreateBlog;
+export default CreateAndEditBlog;

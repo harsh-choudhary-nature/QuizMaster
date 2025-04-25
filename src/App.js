@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Blogs from './pages/Blogs';
-import CreateBlog from './pages/CreateAndEditBlog';
+import CreateAndEditBlog from './pages/CreateAndEditBlog';
 import BlogDetail from './pages/BlogDetail';
 import Profile from './pages/Profile';
 
@@ -35,7 +35,8 @@ function App() {
           <Route path="/auth/register" element={<RegisterPage />} />
           <Route path="/auth/login" element={<LoginPage />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/create" element={<CreateBlog />} />
+          <Route path="/blogs/create" element={<CreateAndEditBlog />} />
+          <Route path="/blogs/edit/:id" element={<CreateAndEditBlog />} />
           <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
