@@ -3,40 +3,41 @@ import Question from './components/Question';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 11; // Increment this manually when you release a new set
+const QUIZ_VERSION = 12; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Where will India\'s first Integrated Active Pharmaceutical Ingredient (API), Green Hydrogen and 2G Ethanol project be set up?',
-    options: ['Jharkhand', 'Bihar', 'Himachal Pradesh', 'Tamil Nadu'],
+    question: 'The central government has approved \'Project Lion\' along with the budget of the ________.',
+    options: ['Rs 3,000.34 crore', 'Rs 2,500 crore', 'Rs 2,927.71 crore', 'Rs 2,800 crore'],
     correctOption: 2,
-    description: 'India\'s first integrated facility for Active Pharmaceutical Ingredient (API), Green Hydrogen, and 2G Ethanol will be set up in Una, Himachal Pradesh, marking a significant step in green energy and healthcare manufacturing.'
+    description: 'The central government approved Project Lion with a total budget of Rs 2,927.71 crore to ensure the long-term conservation of the Asiatic lions in Gujarat\'s Gir region.'
   },
   {
-    question: 'Who among the following has received the EY Entrepreneur of the Year Award 2024?',
-    options: ['KV Kamath', 'Ritesh Agarwal', 'Tilak Mehta', 'Nitin Kamath'],
+    question: 'Where was the Shaurya Vedna Utsav organized by the Union Ministry of Defence in March 2025?',
+    options: ['Bihar', 'West Bengal', 'Punjab', 'Uttar Pradesh'],
+    correctOption: 0,
+    description: 'The Shaurya Vedanam Utsav, organized by the Union Ministry of Defence, took place in Motihari, Bihar in March 2025. The event, which ran from March 7th to 8th, 2025, was a two-day display of the Indian Armed Forces\' military prowess. It was the first-ever Shaurya Vedanam Utsav.'
+  },
+  {
+    question: 'Which conference was inaugurated by President Droupadi Murmu on International Women\'s Day 2025?',
+    options: ['Women\'s Empowerment Summit', 'India Developed by Women Power Conference', 'India Uday Conference', 'National Gender Equality Summit'],
+    correctOption: 1,
+    description: 'On International Women\'s Day 2025, President Droupadi Murmu inaugurated the "India Developed by Women Power Conference" to emphasize women-led development initiatives.'
+  },
+  {
+    question: 'Which state government has announced to set up a media monitoring centre to analyse news content from print, electronic and digital media?',
+    options: ['Uttar Pradesh', 'Maharashtra', 'Gujarat', 'Tamil Nadu'],
+    correctOption: 1,
+    description: 'The Maharashtra government will set up a media monitoring centre at an estimated cost of Rs 10 crore that will monitor news coverage related to the state government in print, electronic, social and digital mediums.'
+  },
+  {
+    question: 'Which of the following state cabinet approved the implementation of Integrated Pension Scheme?',
+    options: ['Uttar Pradesh', 'Madhya Pradesh', 'Himachal Pradesh', 'Uttarakhand'],
     correctOption: 3,
-    description: 'Nitin Kamath, the founder of Zerodha, received the EY Entrepreneur of the Year Award 2024 for his contributions to transforming retail investing in India through innovation and transparency.'
-  },
-  {
-    question: 'Who is the world president of the World Sustainable Development Summit?',
-    options: ['United Nations Environment Programme', 'World Union for Conservation of Nature', 'The Energy and Resources Institute (TERI)', 'International Panel on Climate Change'],
-    correctOption: 2,
-    description: 'The Energy and Resources Institute (TERI) is the principal organizer of the World Sustainable Development Summit, where the director general of TERI acts as the global president for the summit events.'
-  },
-  {
-    question: 'What happened immediately after the Big Bang and which telescope is going to launch on March 7 to detect the reservoirs of water in the galaxy?',
-    options: ['James Webb Space Telescope', 'Hubble Space Telescope', 'Spherex', 'Chandra X-ray Observatory'],
-    correctOption: 2,
-    description: 'After the Big Bang, the universe rapidly expanded and cooled, forming the first atoms. NASA\'s Spherex telescope, set to launch on March 7, aims to study the origins of water and stars by conducting an infrared survey of the entire sky.'
-  },
-  {
-    question: 'Sharath Kamal has announced his retirement from which sport?',
-    options: ['tennis', 'badminton', 'hockey game', 'table tennis'],
-    correctOption: 3,
-    description: 'Indian table tennis legend Achanta Sharath Kamal announced his retirement from the sport, concluding a decorated career that includes multiple Commonwealth Games gold medals and a Padma Shri award.'
+    description: 'Uttarakhand Cabinet approves implementation of Unified Pension Scheme. The Uttarakhand Cabinet, led by Chief Minister Pushkar Singh Dhami, approved the Unified Pension Scheme, set to be operational from April 1, 2025.'
   },
 ];
+
 
 
 const QuizPage = () => {
