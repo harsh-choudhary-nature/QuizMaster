@@ -1,9 +1,9 @@
-// src/pages/CreateBlog.js
+// src/pages/CreateAndEditBlog.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useAuth } from '../contexts/AuthContext';
-import styles from '../styles/CreateBlog.module.css';
+import styles from '../styles/CreateAndEditBlog.module.css';
 import Select from 'react-select';
 import keywordsOptions from '../data/keywordsOptions';
 import remarkGfm from 'remark-gfm';
