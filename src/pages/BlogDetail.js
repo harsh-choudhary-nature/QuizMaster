@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 const BlogDetail = () => {
     const { id } = useParams();
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
     const navigate = useNavigate();
     const [blog, setBlog] = useState(null);
     const [error, setError] = useState(null);
@@ -62,6 +62,8 @@ const BlogDetail = () => {
             navigate('/blogs');
         } catch (err) {
             alert('Error deleting blog.');
+            logout();
+            navigate('/auth/login');
         }
     };
 
@@ -90,6 +92,8 @@ const BlogDetail = () => {
         } catch (error) {
             console.error('❌ Error liking blog:', error);
             alert(`An error occurred while liking the blog: ${error.message}`);
+            logout();
+            navigate('/auth/login');
         }
 
     };
@@ -115,7 +119,9 @@ const BlogDetail = () => {
         } catch (error) {
             console.error('❌ Error disliking blog:', error);
             alert(`An error occurred while disliking the blog: ${error.message}`);
-        }    
+            logout();
+            navigate('/auth/login');
+        }
     };
 
 
@@ -132,10 +138,10 @@ const BlogDetail = () => {
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{blog.content}</ReactMarkdown>
             </div>
             <div className={styles.actions}>
-                <button className={styles.likeDislikeButton} onClick={handleLike}
-                    style={{ backgroundColor: hasLiked ? '#ffd700' : '#333' }}>👍 {likes}</button>
-                <button className={styles.likeDislikeButton} onClick={handleDislike}
-                    style={{ backgroundColor: hasDisliked ? '#ff6666' : '#333' }}>👎 {dislikes}</button>
+                <button className={`${styles.likeDislikeButton} ${hasLiked ? styles.liked : ''}`} onClick={handleLike}
+                >👍 {likes}</button>
+                <button className={`${styles.likeDislikeButton} ${hasDisliked ? styles.disliked : ''}`} onClick={handleDislike}
+                >👎 {dislikes}</button>
                 {blog.creator && (
                     <>
                         <button className={styles.editButton} onClick={handleEdit}>✏️ Edit</button>

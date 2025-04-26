@@ -101,7 +101,7 @@ const CreateAndEditBlog = () => {
                 setErrorMsg(data.message || 'Failed to create blog.');
             }
         } catch (err) {
-            setErrorMsg('Something went wrong.');
+            setErrorMsg('Something went wrong. Try logging out and back in.');
         } finally {
             setLoading(false);
         }

@@ -34,6 +34,8 @@ export default function Navbar() {
             navigate('/auth/register');
         } catch (err) {
             alert(err.message);
+            logout();
+            navigate('/auth/login');
         }
     };
 

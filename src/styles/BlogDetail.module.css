@@ -40,9 +40,10 @@
 }
 
 .markdown a {
-    color: inherit;        /* Use the surrounding text color */
+    color: inherit;
+    /* Use the surrounding text color */
     text-decoration: underline;
-  }
+}
 
 .actions {
     margin-top: 2rem;
@@ -77,10 +78,19 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: background-color 0.2s ease;
 }
 
 .likeDislikeButton:hover {
     background-color: #e6b800;
+}
+
+.liked {
+    background-color: #ffd700 !important;
+}
+
+.disliked {
+    background-color: #ff6666 !important;
 }
 
 .loading,
