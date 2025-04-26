@@ -44,3 +44,52 @@
     font-size: 1rem;
     text-align: center;
 }
+
+.blogs {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.blogsLoading {
+    opacity: 0.5;
+    pointer-events: none;
+    /* Optional: prevent clicking while loading */
+    transition: opacity 0.3s ease;
+}
+
+.searchContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.searchInput {
+    width: 100%;
+    padding-right: 2rem; /* Make space for spinner */
+    height: 2.5rem;
+    font-size: 1rem;
+    padding-left: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Tiny spinner */
+.spinner {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #ccc;
+    border-top: 2px solid #333;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+

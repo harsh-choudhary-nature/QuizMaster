@@ -11,14 +11,26 @@ const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [error, setError] = useState(null); 
+    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const [searchInput, setSearchInput] = useState(''); // raw input from the user
+    const [search, setSearch] = useState(''); // debounced search term
+
+    useEffect(() => {
+        const delayDebounce = setTimeout(() => {
+            setPage(1);        // Reset to page 1
+            setSearch(searchInput);
+        }, 500); // 500ms after the last keystroke
+
+        return () => clearTimeout(delayDebounce);
+    }, [searchInput]);
 
     useEffect(() => {
         const fetchBlogs = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogs?page=${page}`);
+                const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blogs?page=${page}&search=${encodeURIComponent(search)}`);
                 if (!res.ok) {
                     throw new Error('Unable to fetch blogs');
                 }
@@ -34,28 +46,35 @@ const Blogs = () => {
         };
 
         fetchBlogs();
-    }, [page]);
+    }, [page, search]);
 
     return (
         <div className={styles.container}>
             <h1 className={styles.heading}>Blogs</h1>
+            <div className={styles.searchContainer}>
+                <input
+                    type="text"
+                    placeholder="Search blogs..."
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    className={styles.searchInput}
+                />
+                {loading && <div className={styles.spinner}></div>}
+            </div>
             {error && <p className={styles.errorMessage}>{error}</p>}
-            {loading ? (
-                <p className={styles.loadingMessage}>Loading Blogs ...</p>
-            ) : (
-                <>
-                    {blogs.length > 0 ? (
-                        <>
-                            {blogs.map(blog => (
-                                <BlogCard key={blog._id} blog={blog} />
-                            ))}
-                            <BlogPagination page={page} setPage={setPage} totalPages={totalPages} />
-                        </>
-                    ) : (
-                        !error && <p className={styles.loadingMessage}>No blogs available</p>
-                    )}
-                </>
-            )}
+            {/* Add a wrapper div for blogs with conditional class */}
+            <div className={loading ? styles.blogsLoading : styles.blogs}>
+                {blogs.length > 0 ? (
+                    <>
+                        {blogs.map(blog => (
+                            <BlogCard key={blog._id} blog={blog} />
+                        ))}
+                        <BlogPagination page={page} setPage={setPage} totalPages={totalPages} />
+                    </>
+                ) : (
+                    !error && <p className={styles.loadingMessage}>No blogs available</p>
+                )}
+            </div>
             {user && <FloatingButton />}
         </div>
     );
