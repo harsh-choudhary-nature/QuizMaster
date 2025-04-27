@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import './App.css';
-import QuizPage from './QuizPage';
+import QuizPage from './pages/QuizPage';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -10,28 +9,16 @@ import Blogs from './pages/Blogs';
 import CreateAndEditBlog from './pages/CreateAndEditBlog';
 import BlogDetail from './pages/BlogDetail';
 import Profile from './pages/Profile';
+import GamesPage from './pages/GamesPage';
 
 
 function App() {
-  const [started, setStarted] = useState(false);
 
   return (
     <Router>
       <Navbar />
       <div className="App">
         <Routes>
-          <Route path="/" element = 
-            {!started ? (
-                <header className="App-header">
-                  <h1 className="App-title">Welcome to QuizMaster</h1>
-                  <p className="App-description">
-                    Test your knowledge with our quick and fun quizzes!
-                  </p>
-                  <button className="start-btn" onClick={() => setStarted(true)}>Start Quiz</button>
-                </header>
-            ) : (
-              <QuizPage />
-            )} />
           <Route path="/auth/register" element={<RegisterPage />} />
           <Route path="/auth/login" element={<LoginPage />} />
           <Route path="/blogs" element={<Blogs />} />
@@ -39,6 +26,8 @@ function App() {
           <Route path="/blogs/edit/:id" element={<CreateAndEditBlog />} />
           <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/games" element={<GamesPage />} />
+          <Route path="/games/daily-quiz" element={<QuizPage />} />
         </Routes>
       </div>
       <Analytics />

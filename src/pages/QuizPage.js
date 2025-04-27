@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Question from './components/Question';
+import Question from '../components/Question';
+import styles from '../styles/QuizPage.module.css';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
@@ -41,12 +42,12 @@ const defaultQuestions = [
 
 
 const QuizPage = () => {
-  
+  const [started, setStarted] = useState(false);
   const [userProgress, setUserProgress] = useState([]);
   const [score, setScore] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
-  
-  
+
+
   // Load progress on mount
   useEffect(() => {
     const savedVersion = localStorage.getItem(VERSION_KEY);
@@ -75,7 +76,7 @@ const QuizPage = () => {
       setScore(correctCount);
       if (correctCount === defaultQuestions.length) {
         setShowSuccess(true);
-  
+
         // Auto-hide after 3 seconds
         setTimeout(() => {
           setShowSuccess(false);
@@ -111,68 +112,76 @@ const QuizPage = () => {
     initializeProgress();
   };
 
-
   return (
-    <div className="quiz-container">
-      {showSuccess && (
-        <>
-          {/* Success Message */}
-          <div style={{
-            position: 'fixed',
-            top: '30%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            backgroundColor: '#4BB543',
-            color: 'white',
-            padding: '20px 40px',
-            borderRadius: '15px',
-            fontSize: '1.4rem',
-            fontWeight: 'bold',
-            boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
-            zIndex: 10001,
-            textAlign: 'center',
-            animation: 'fadeInOut 3s ease'
-          }}>
-            🎉 Perfect Score! Well Done! 🎉
-          </div>
-      
-          {/* Animated Ribbons */}
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className={`ribbon ribbon-${i}`} />
-          ))}
-        </>
-      )}
+    !started ? (
+      <header className={styles.header}>
+        <h1 className={styles.title}>Welcome to QuizMaster</h1>
+        <p className={styles.questionCardDescription}>
+          Test your knowledge with our quick and fun quizzes!
+        </p>
+        <button className={styles.startBtn} onClick={() => setStarted(true)}>Start Quiz</button>
+      </header>
+    ) : (
+      <div className={styles.quizContainer}>
+        {showSuccess && (
+          <>
+            {/* Success Message */}
+            <div style={{
+              position: 'fixed',
+              top: '30%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: '#4BB543',
+              color: 'white',
+              padding: '20px 40px',
+              borderRadius: '15px',
+              fontSize: '1.4rem',
+              fontWeight: 'bold',
+              boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+              zIndex: 10001,
+              textAlign: 'center',
+              animation: 'fadeInOut 3s ease'
+            }}>
+              🎉 Perfect Score! Well Done! 🎉
+            </div>
 
-      <div style={{
-        textAlign: 'center',
-        fontSize: '2rem',
-        fontWeight: 'bold',
-        marginBottom: '30px',
-        color: '#fff'
-      }}>
-        🧠 Current Affairs
-      </div>
+            {/* Animated Ribbons */}
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className={`${styles.ribbon} ${styles[`ribbon-${i}`]}`} />
+            ))}
+          </>
+        )}
 
-      {defaultQuestions.map((q, idx) => (
-        <Question
-        key={idx}
-        question={q.question}
-        options={q.options}
-        correctOption={q.correctOption}
-        description={q.description}
-        selectedOption={userProgress[idx]?.selectedOption}
-        submitted={userProgress[idx]?.submitted}
-        onSelectOption={(opt) => handleAnswer(idx, opt)}
-        onSubmit={() => handleSubmit(idx)}
-        />
-      ))}
+        <div style={{
+          textAlign: 'center',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          marginBottom: '30px',
+          color: '#fff'
+        }}>
+          🧠 Current Affairs
+        </div>
 
-      <div style={{ fontSize: '1.2rem', marginBottom: '20px', fontWeight: 'bold' }}>
-        Total Correct: <span translate = 'no'>{score} / {defaultQuestions.length}</span>
-      </div>
+        {defaultQuestions.map((q, idx) => (
+          <Question
+            key={idx}
+            question={q.question}
+            options={q.options}
+            correctOption={q.correctOption}
+            description={q.description}
+            selectedOption={userProgress[idx]?.selectedOption}
+            submitted={userProgress[idx]?.submitted}
+            onSelectOption={(opt) => handleAnswer(idx, opt)}
+            onSubmit={() => handleSubmit(idx)}
+          />
+        ))}
 
-      <button className="start-btn" onClick={handleReset}>Reset Quiz</button>
-    </div>
+        <div style={{ fontSize: '1.2rem', marginBottom: '20px', fontWeight: 'bold' }}>
+          Total Correct: <span translate='no'>{score} / {defaultQuestions.length}</span>
+        </div>
+
+        <button className={styles.startBtn} onClick={handleReset}>Reset Quiz</button>
+      </div>)
   );
 };
 

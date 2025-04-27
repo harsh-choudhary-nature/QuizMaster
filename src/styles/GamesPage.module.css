@@ -1,0 +1,61 @@
+.pageContainer {
+    padding: 6rem 2rem 2rem;
+    /* Account for fixed navbar */
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #1e1f1f, #121212); */
+    color: white;
+    box-sizing: border-box;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.gamesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.gameCard {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 250px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.gameCard:hover {
+    transform: translateY(-5px);
+    color: #ffd700;
+}
+
+.gameCard img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.gameTitle {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+    .gameCard {
+        width: 90%;
+    }
+}

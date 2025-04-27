@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../styles/QuizPage.module.css';
 
 const Question = ({ question, options, correctOption, description, selectedOption, submitted, onSelectOption, onSubmit }) => {
 
   return (
-    <div className="question-card">
+    <div className={styles.questionCard}>
       <h3>{question}</h3>
       <ul>
         {options.map((opt, idx) => (
@@ -23,16 +24,16 @@ const Question = ({ question, options, correctOption, description, selectedOptio
         ))}
       </ul>
       {!submitted && (
-        <button className="submit-btn" onClick={onSubmit} disabled={submitted || selectedOption === null}>
+        <button className={styles.submitBtn} onClick={onSubmit} disabled={submitted || selectedOption === null}>
           Submit
         </button>
       )}
       {submitted && (
-        <div className={`result ${selectedOption === correctOption ? 'correct' : 'wrong'}`}>
+        <div className={`${styles.result} ${selectedOption === correctOption ? styles.correct : styles.wrong}`}>
           <p>
             {selectedOption === correctOption ? '✅ Correct!' : '❌ Incorrect.'}
           </p>
-          <p className="description">{description}</p>
+          <p className={styles.description}>{description}</p>
         </div>
       )}
     </div>
