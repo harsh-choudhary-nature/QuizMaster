@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Hangman.module.css";
 
 const HangmanGame = () => {
-    const hardcodedWord = "REACT"; // Can be changed to a dynamic word daily if needed.
-    const wordHint = "A JavaScript library for building user interfaces";
+    const hardcodedWord = "ANGELIFEROUS"; // Can be changed to a dynamic word daily if needed.
+    const wordHint = "Resembling an angel";
     const storageKey = `HANGMAN WORD ${hardcodedWord}`;
 
     const [word, setWord] = useState("");
@@ -13,11 +13,19 @@ const HangmanGame = () => {
     const [attemptsLeft, setAttemptsLeft] = useState(6);
     const [gameStatus, setGameStatus] = useState(null);
 
+    const [isHintRevealed, setIsHintRevealed] = useState(false);
+
 
     // Check if the word in localStorage matches the hardcoded word
     useEffect(() => {
-        const storedGameState = localStorage.getItem(storageKey);
+        // Check for and delete any keys in localStorage that start with 'HANGMAN WORD' but do not match the current storageKey
+        Object.keys(localStorage).forEach((key) => {
+            if (key.startsWith("HANGMAN WORD") && key !== storageKey) {
+                localStorage.removeItem(key);
+            }
+        });
 
+        const storedGameState = localStorage.getItem(storageKey);
         // If no saved state or a version mismatch (i.e., hardcoded word changes)
         if (!storedGameState) {
             setWord(hardcodedWord);
@@ -51,6 +59,7 @@ const HangmanGame = () => {
 
 
     useEffect(() => {
+        if (!maskedWord || !word) return;
         if (maskedWord === word) {
             setGameStatus("won");
         }
@@ -91,6 +100,10 @@ const HangmanGame = () => {
         return word.includes(letter);
     };
 
+    const toggleHint = () => {
+        setIsHintRevealed(!isHintRevealed);
+    };
+
     return (
         <div className={styles.gameContainer}>
             <h2 className={styles.gameTitle}>Hangman</h2>
@@ -102,7 +115,6 @@ const HangmanGame = () => {
                         </span>
                     ))}
                 </div>
-                <div className={styles.hint}>Hint: {wordHint}</div>
                 <div className={styles.incorrectGuesses}>
                     Incorrect Guesses: {incorrectGuesses.join(", ")}
                 </div>
@@ -125,6 +137,13 @@ const HangmanGame = () => {
                         {gameStatus === "won" ? "You Won!" : "You Lost!"}
                     </div>
                 )}
+                <div className={styles.hintContainer}>
+                    <button onClick={toggleHint} className={`${!isHintRevealed ? styles.hintButton : styles.hintButtonClicked}`}>Hint</button>
+                    <div className={`${styles.hintText} ${isHintRevealed ? styles.showHint : ''}`}>
+                        {wordHint}
+                    </div>
+                </div>
+
                 <button onClick={handleReset} className={styles.resetButton}>
                     Reset Game
                 </button>

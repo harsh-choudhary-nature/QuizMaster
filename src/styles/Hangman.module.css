@@ -31,6 +31,11 @@
     letter-spacing: 2px;
     margin-bottom: 20px;
     color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .letter {
@@ -70,7 +75,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
-    width: 50px;
+    width: 48px;
 }
 
 .correct {
@@ -111,7 +116,7 @@
 }
 
 .resetButton {
-    background-color: #0083b0;
+    background-color: #07abe1;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -125,12 +130,59 @@
     background-color: #006f8e;
 }
 
-.hint {
-    font-size: 1.2rem;
-    color: #555;
+.hintContainer {
+    position: relative;
+    display: inline-block;
     margin-top: 10px;
-    align-self: center;
+    align-self: flex-start;
+    display: flex;
 }
+
+.hintButton {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hintButton:hover {
+    background-color: #ff9900;
+}
+
+.hintButtonClicked {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+}
+
+.hintButtonClicked:hover {
+    background-color: #ff9900;
+}
+
+.hintText {
+    opacity: 0;
+    visibility: visible;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    padding-left: 10px;
+    border-radius: 0 5px 5px 0;
+    transition: opacity 0.5s ease, background-color 0.5s ease;
+    color: black;
+}
+
+.hintText.showHint {
+    opacity: 1;
+    background-color: #ffcc00;
+}
+
+
 
 /* Falling Ribbon Styling */
 .fallingRibbons {
