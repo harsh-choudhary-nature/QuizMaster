@@ -4,41 +4,40 @@ import styles from '../styles/QuizPage.module.css';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 12; // Increment this manually when you release a new set
+const QUIZ_VERSION = 13; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'The central government has approved \'Project Lion\' along with the budget of the ________.',
-    options: ['Rs 3,000.34 crore', 'Rs 2,500 crore', 'Rs 2,927.71 crore', 'Rs 2,800 crore'],
+    question: 'Which state government has launched Project Hifazat to protect women and children from violence?',
+    options: ['Maharashtra', 'West Bengal', 'Punjab', 'Uttar Pradesh'],
     correctOption: 2,
-    description: 'The central government approved Project Lion with a total budget of Rs 2,927.71 crore to ensure the long-term conservation of the Asiatic lions in Gujarat\'s Gir region.'
+    description: 'The Punjab government has launched Project Hifazat to protect women and children from violence, aiming to provide better safety and support mechanisms. Under this project, the 181 women\'s helpline and 1098 children\'s helpline will be empowered.'
   },
   {
-    question: 'Where was the Shaurya Vedna Utsav organized by the Union Ministry of Defence in March 2025?',
-    options: ['Bihar', 'West Bengal', 'Punjab', 'Uttar Pradesh'],
-    correctOption: 0,
-    description: 'The Shaurya Vedanam Utsav, organized by the Union Ministry of Defence, took place in Motihari, Bihar in March 2025. The event, which ran from March 7th to 8th, 2025, was a two-day display of the Indian Armed Forces\' military prowess. It was the first-ever Shaurya Vedanam Utsav.'
-  },
-  {
-    question: 'Which conference was inaugurated by President Droupadi Murmu on International Women\'s Day 2025?',
-    options: ['Women\'s Empowerment Summit', 'India Developed by Women Power Conference', 'India Uday Conference', 'National Gender Equality Summit'],
-    correctOption: 1,
-    description: 'On International Women\'s Day 2025, President Droupadi Murmu inaugurated the "India Developed by Women Power Conference" to emphasize women-led development initiatives.'
-  },
-  {
-    question: 'Which state government has announced to set up a media monitoring centre to analyse news content from print, electronic and digital media?',
-    options: ['Uttar Pradesh', 'Maharashtra', 'Gujarat', 'Tamil Nadu'],
-    correctOption: 1,
-    description: 'The Maharashtra government will set up a media monitoring centre at an estimated cost of Rs 10 crore that will monitor news coverage related to the state government in print, electronic, social and digital mediums.'
-  },
-  {
-    question: 'Which of the following state cabinet approved the implementation of Integrated Pension Scheme?',
-    options: ['Uttar Pradesh', 'Madhya Pradesh', 'Himachal Pradesh', 'Uttarakhand'],
+    question: 'Who will become the 24th Prime Minister of Canada?',
+    options: ['John Alexander', 'John Abbott', 'Mario Garcia', 'Mark Carney'],
     correctOption: 3,
-    description: 'Uttarakhand Cabinet approves implementation of Unified Pension Scheme. The Uttarakhand Cabinet, led by Chief Minister Pushkar Singh Dhami, approved the Unified Pension Scheme, set to be operational from April 1, 2025.'
+    description: 'Mark Carney, a former Bank of Canada and Bank of England governor, is set to become the 24th Prime Minister of Canada.'
   },
+  {
+    question: 'Which wildlife sanctuary has been notified as the 58th Tiger Reserve of the country?',
+    options: ['Madhav National Park, Madhya Pradesh', 'Sundarbans, West Bengal', 'Pilibhit, Uttar Pradesh', 'Srivilliputhur Megamalai, Tamil Nadu'],
+    correctOption: 0,
+    description: 'Madhav National Park in Madhya Pradesh has been notified as the 58th Tiger Reserve of India, further strengthening the country’s tiger conservation efforts. This addition makes Madhya Pradesh the state with the highest number of tiger reserves in India, totaling nine. The reserve is located in the Shivpuri district of Madhya Pradesh.'
+  },
+  {
+    question: 'Bengaluru City University will be renamed after whom?',
+    options: ['APJ Abdul Kalam', 'Atal Bihari Vajpayee', 'Dr. Manmohan Singh', 'Manohar Parrikar'],
+    correctOption: 2,
+    description: 'Bangalore City University will be renamed after the late former Prime Minister Manmohan Singh.'
+  },
+  {
+    question: 'Delhi govt approves \'Mahila Samridhi Yojana\' to provide __________ to women',
+    options: ['Rs. 3,500', 'Rs. 1,500', 'Rs. 2,000', 'Rs. 2,500'],
+    correctOption: 3,
+    description: 'The Delhi government approved the \'Mahila Samridhi Yojana\' to provide Rs. 2,500 financial support to women.'
+  }
 ];
-
 
 
 const QuizPage = () => {
