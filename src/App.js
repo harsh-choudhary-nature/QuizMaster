@@ -2,7 +2,7 @@ import './App.css';
 import QuizPage from './pages/QuizPage';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Blogs from './pages/Blogs';
@@ -28,6 +28,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/games/daily-quiz" element={<QuizPage />} />
+          <Route path="*" element={<Navigate to="/games" replace />} />
         </Routes>
       </div>
       <Analytics />
