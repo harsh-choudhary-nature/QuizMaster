@@ -1,0 +1,202 @@
+.gameContainer {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.gameBoard {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.wordDisplay {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.letter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.incorrectGuesses {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: red;
+}
+
+.attempts {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: black;
+}
+
+.alphabetGrid {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.letterButton {
+    background-color: #232526;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 50px;
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+}
+
+.letterButton:hover {
+    background-color: #ffd700;
+    color: #232526;
+}
+
+.letterButton:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.correct:disabled {
+    background-color: rgb(54, 113, 54);
+    color: white;
+}
+
+.incorrect:disabled {
+    background-color: rgb(130, 64, 64);
+    color: white;
+}
+
+.gameStatus {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: black;
+}
+
+.resetButton {
+    background-color: #0083b0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.resetButton:hover {
+    background-color: #006f8e;
+}
+
+.hint {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 10px;
+    align-self: center;
+}
+
+/* Falling Ribbon Styling */
+.fallingRibbons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.ribbon {
+    position: fixed;
+    width: 100px;
+    height: 10px;
+    top: -20px;
+    opacity: 0.8;
+    z-index: 9999;
+    border-radius: 10px;
+    animation: ribbonFall 3s linear infinite;
+}
+
+/* Specific ribbon styles with different animation delays and backgrounds */
+.ribbon-0 {
+    left: 10%;
+    background: linear-gradient(90deg, red, orange);
+    animation-delay: 0s;
+}
+
+.ribbon-1 {
+    left: 30%;
+    background: linear-gradient(90deg, blue, cyan);
+    animation-delay: 0.3s;
+}
+
+.ribbon-2 {
+    left: 50%;
+    background: linear-gradient(90deg, green, lime);
+    animation-delay: 0.6s;
+}
+
+.ribbon-3 {
+    left: 70%;
+    background: linear-gradient(90deg, purple, pink);
+    animation-delay: 0.9s;
+}
+
+.ribbon-4 {
+    left: 90%;
+    background: linear-gradient(90deg, yellow, gold);
+    animation-delay: 1.2s;
+}
+
+/* Ribbon falling animation */
+@keyframes ribbonFall {
+    0% {
+        top: -20px;
+        transform: rotateZ(0deg) translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        top: 110%;
+        transform: rotateZ(360deg) translateX(50px);
+        opacity: 0;
+    }
+}

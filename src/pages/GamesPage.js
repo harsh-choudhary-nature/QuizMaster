@@ -11,10 +11,10 @@ export default function GamesPage() {
                 <div className={styles.gameCard} onClick={() => navigate('/games/daily-quiz')}>
                     <div className={styles.gameTitle}>Daily Quiz</div>
                 </div>
-
-                {/* <div className={styles.gameCard} onClick={() => navigate('/games/sudoku')}>
-                    <div className={styles.gameTitle}>Sudoku</div>
+                <div className={styles.gameCard} onClick={() => navigate('/games/hangman')}>
+                    <div className={styles.gameTitle}>Hangman</div>
                 </div>
+                {/* 
 
                 <div className={styles.gameCard} onClick={() => navigate('/games/tictactoe')}>
                     <div className={styles.gameTitle}>Tic Tac Toe</div>

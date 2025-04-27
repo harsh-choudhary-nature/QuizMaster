@@ -10,6 +10,7 @@ import CreateAndEditBlog from './pages/CreateAndEditBlog';
 import BlogDetail from './pages/BlogDetail';
 import Profile from './pages/Profile';
 import GamesPage from './pages/GamesPage';
+import HangmanGame from './pages/Hangman';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/games/daily-quiz" element={<QuizPage />} />
+          <Route path="/games/hangman" element={<HangmanGame />} />
           <Route path="*" element={<Navigate to="/games" replace />} />
         </Routes>
       </div>
