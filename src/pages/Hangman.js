@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Hangman.module.css";
 
 const HangmanGame = () => {
-    const hardcodedWord = "ANGELIFEROUS"; // Can be changed to a dynamic word daily if needed.
-    const wordHint = "Resembling an angel";
+    const hardcodedWord = "SERENDIPITY"; // Can be changed to a dynamic word daily if needed.
+    const wordHint = "The occurrence of events by chance in a happy or beneficial way";
     const storageKey = `HANGMAN WORD ${hardcodedWord}`;
 
     const [word, setWord] = useState("");

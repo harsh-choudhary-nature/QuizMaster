@@ -4,40 +4,41 @@ import styles from '../styles/QuizPage.module.css';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 13; // Increment this manually when you release a new set
+const QUIZ_VERSION = 14; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Which state government has launched Project Hifazat to protect women and children from violence?',
-    options: ['Maharashtra', 'West Bengal', 'Punjab', 'Uttar Pradesh'],
+    question: 'Who has been selected for the 2024 Maharashtra Bhushan Award by the Maharashtra government?',
+    options: ['Arun Yogiraj', 'Leela Mukherjee', 'Ram Sutar', 'Meira Mukherjee'],
     correctOption: 2,
-    description: 'The Punjab government has launched Project Hifazat to protect women and children from violence, aiming to provide better safety and support mechanisms. Under this project, the 181 women\'s helpline and 1098 children\'s helpline will be empowered.'
+    description: 'Renowned sculptor Ram Sutar, known for designing the Statue of Unity, has been selected for the 2024 Maharashtra Bhushan Award by the Maharashtra government.'
   },
   {
-    question: 'Who will become the 24th Prime Minister of Canada?',
-    options: ['John Alexander', 'John Abbott', 'Mario Garcia', 'Mark Carney'],
-    correctOption: 3,
-    description: 'Mark Carney, a former Bank of Canada and Bank of England governor, is set to become the 24th Prime Minister of Canada.'
-  },
-  {
-    question: 'Which wildlife sanctuary has been notified as the 58th Tiger Reserve of the country?',
-    options: ['Madhav National Park, Madhya Pradesh', 'Sundarbans, West Bengal', 'Pilibhit, Uttar Pradesh', 'Srivilliputhur Megamalai, Tamil Nadu'],
+    question: 'Who was awarded the prestigious Stockholm Water Prize on March 20, 2025?',
+    options: ['Günter Bloschl', 'Taikan Oki', 'Andrea Rinaldo', 'Wilfred H. Brutsart'],
     correctOption: 0,
-    description: 'Madhav National Park in Madhya Pradesh has been notified as the 58th Tiger Reserve of India, further strengthening the country’s tiger conservation efforts. This addition makes Madhya Pradesh the state with the highest number of tiger reserves in India, totaling nine. The reserve is located in the Shivpuri district of Madhya Pradesh.'
+    description: 'Based on his world-renowned work on flood risk reduction, water resource management, flood scaling, and regional process hydrology – Professor Günter Blöschl wins the Stockholm Water Prize 2025.'
   },
   {
-    question: 'Bengaluru City University will be renamed after whom?',
-    options: ['APJ Abdul Kalam', 'Atal Bihari Vajpayee', 'Dr. Manmohan Singh', 'Manohar Parrikar'],
+    question: 'ISRO develops high-speed microprocessors ______ and ______ for space missions.',
+    options: ['Vikram 201, Kalpana 201', 'Vikram 301, Kalpana 301', 'Vikram 3201, Kalpana 3201', 'Vikram 320, Kalpana 320'],
     correctOption: 2,
-    description: 'Bangalore City University will be renamed after the late former Prime Minister Manmohan Singh.'
+    description: 'ISRO develops high-speed microprocessors VIKRAM3201 and KALPANA3201 for space missions. These 32-bit microprocessors are designed and developed by the Vikram Sarabhai Space Centre of ISRO in collaboration with Semiconductor Laboratory (SCL), Chandigarh.'
   },
   {
-    question: 'Delhi govt approves \'Mahila Samridhi Yojana\' to provide __________ to women',
-    options: ['Rs. 3,500', 'Rs. 1,500', 'Rs. 2,000', 'Rs. 2,500'],
-    correctOption: 3,
-    description: 'The Delhi government approved the \'Mahila Samridhi Yojana\' to provide Rs. 2,500 financial support to women.'
+    question: 'Which is the first State Legislative Assembly in India to broadcast its proceedings in sign language?',
+    options: ['Uttar Pradesh Legislative Assembly', 'Madhya Pradesh Legislative Assembly', 'Punjab Assembly', 'Rajasthan Assembly'],
+    correctOption: 2,
+    description: 'Punjab has become the first state in India to broadcast its state Legislative Assembly proceedings in Sign language.'
+  },
+  {
+    question: 'Which state government approved a 100% hike in the salaries of CM, ministers and legislators?',
+    options: ['Karnataka', 'Assam', 'Madhya Pradesh', 'Rajasthan'],
+    correctOption: 0,
+    description: 'The Karnataka government has approved 100% salary hike for the Chief Minister, ministers, and members of the Legislative Assembly (MLAs).'
   }
 ];
+
 
 
 const QuizPage = () => {
