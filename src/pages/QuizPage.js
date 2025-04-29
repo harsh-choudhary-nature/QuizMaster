@@ -4,38 +4,63 @@ import styles from '../styles/QuizPage.module.css';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 14; // Increment this manually when you release a new set
+const QUIZ_VERSION = 15; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'Who has been selected for the 2024 Maharashtra Bhushan Award by the Maharashtra government?',
-    options: ['Arun Yogiraj', 'Leela Mukherjee', 'Ram Sutar', 'Meira Mukherjee'],
-    correctOption: 2,
-    description: 'Renowned sculptor Ram Sutar, known for designing the Statue of Unity, has been selected for the 2024 Maharashtra Bhushan Award by the Maharashtra government.'
-  },
-  {
-    question: 'Who was awarded the prestigious Stockholm Water Prize on March 20, 2025?',
-    options: ['Günter Bloschl', 'Taikan Oki', 'Andrea Rinaldo', 'Wilfred H. Brutsart'],
+    question: 'The Uttar Pradesh government has launched the RISE app to make its vaccination programme more effective. RISE stands for-',
+    options: [
+      'Rapid Immunisation Skill Enhancement',
+      'Reflect, inquire, suggest, and elevate',
+      'Research Initiatives for Scientific Enrichment',
+      'Immunization Research for Scientific Promotion'
+    ],
     correctOption: 0,
-    description: 'Based on his world-renowned work on flood risk reduction, water resource management, flood scaling, and regional process hydrology – Professor Günter Blöschl wins the Stockholm Water Prize 2025.'
+    description: 'The RISE app launched by the Uttar Pradesh government stands for "Rapid Immunisation Skill Enhancement" to strengthen and streamline the state’s vaccination efforts.'
   },
   {
-    question: 'ISRO develops high-speed microprocessors ______ and ______ for space missions.',
-    options: ['Vikram 201, Kalpana 201', 'Vikram 301, Kalpana 301', 'Vikram 3201, Kalpana 3201', 'Vikram 320, Kalpana 320'],
+    question: 'Exercise Khanjar is a joint military exercise between which two countries?',
+    options: [
+      'India and Iran',
+      'India & China',
+      'India and Kyrgyzstan',
+      'India & Nepal'
+    ],
     correctOption: 2,
-    description: 'ISRO develops high-speed microprocessors VIKRAM3201 and KALPANA3201 for space missions. These 32-bit microprocessors are designed and developed by the Vikram Sarabhai Space Centre of ISRO in collaboration with Semiconductor Laboratory (SCL), Chandigarh.'
+    description: 'Exercise Khanjar is a joint military exercise conducted between India and Kyrgyzstan to enhance interoperability and bilateral cooperation.'
   },
   {
-    question: 'Which is the first State Legislative Assembly in India to broadcast its proceedings in sign language?',
-    options: ['Uttar Pradesh Legislative Assembly', 'Madhya Pradesh Legislative Assembly', 'Punjab Assembly', 'Rajasthan Assembly'],
+    question: 'Who won the award for Best Performance (Male) in a Supporting Role at the International Indian Film Academy (IIFA) Awards 2025?',
+    options: [
+      'Kartik Aaryan',
+      'Ravi Kishan',
+      'Arijit Biswas',
+      'Raghav Juyal'
+    ],
+    correctOption: 1,
+    description: 'Ravi Kishan won the award for Best Performance (Male) in a Supporting Role at the IIFA Awards 2025 for his remarkable acting performance in Laapata Ladies.'
+  },
+  {
+    question: 'Co-founder of Care Earth Trust, Dr. Jayashree Venkatesan has been awarded in which category in the 2025 "Women Changer in the World of Wetlands" released by the Ramsar Secretariat?',
+    options: [
+      'Contributing to Wetland Conservation',
+      'Promoting International Cooperation for Wetlands Category',
+      'Judicious use of wetlands',
+      'None of these'
+    ],
     correctOption: 2,
-    description: 'Punjab has become the first state in India to broadcast its state Legislative Assembly proceedings in Sign language.'
+    description: 'Dr. Jayashree Venkatesan, co-founder of Care Earth Trust, was awarded in the "Wetland Wise Use" category in the 2025 "Women Changemakers in the World of Wetlands" list released by the Ramsar Secretariat.'
   },
   {
-    question: 'Which state government approved a 100% hike in the salaries of CM, ministers and legislators?',
-    options: ['Karnataka', 'Assam', 'Madhya Pradesh', 'Rajasthan'],
+    question: 'Where was the final of the 9th ICC Champions Trophy 2025 held?',
+    options: [
+      'Dubai, United Arab Emirates',
+      'Dhaka, Bangladesh',
+      'Colombo, Sri Lanka',
+      'Karachi, Pakistan'
+    ],
     correctOption: 0,
-    description: 'The Karnataka government has approved 100% salary hike for the Chief Minister, ministers, and members of the Legislative Assembly (MLAs).'
+    description: 'The final of the 9th ICC Champions Trophy 2025 was held in Dubai on 9 March.'
   }
 ];
 
