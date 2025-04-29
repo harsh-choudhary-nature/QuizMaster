@@ -4,7 +4,7 @@ import styles from "../styles/Hangman.module.css";
 const HangmanGame = () => {
     const hardcodedWord = "QUARANTINE"; // Can be changed to a dynamic word daily if needed.
     const wordHint = "A period of isolation to prevent the spread of disease";
-    const storageKey = `HANGMAN WORD ${hardcodedWord}`;
+    const storageKey = `HANGMAN WORD`;
 
     const [word, setWord] = useState("");
     const [maskedWord, setMaskedWord] = useState("");
@@ -18,27 +18,34 @@ const HangmanGame = () => {
 
     // Check if the word in localStorage matches the hardcoded word
     useEffect(() => {
-        // Check for and delete any keys in localStorage that start with 'HANGMAN WORD' but do not match the current storageKey
-        Object.keys(localStorage).forEach((key) => {
-            if (key.startsWith("HANGMAN WORD") && key !== storageKey) {
-                localStorage.removeItem(key);
-            }
-        });
 
         const storedGameState = localStorage.getItem(storageKey);
         // If no saved state or a version mismatch (i.e., hardcoded word changes)
         if (!storedGameState) {
             setWord(hardcodedWord);
             setMaskedWord("_".repeat(hardcodedWord.length));
+            setGuesses([]);
+            setIncorrectGuesses([]);
+            setAttemptsLeft(6);
+            setGameStatus(null);
         } else {
             // Parse the saved game state and load it
             const savedState = JSON.parse(storedGameState);
-            setWord(savedState.word);
-            setMaskedWord(savedState.maskedWord);
-            setGuesses(savedState.guesses);
-            setIncorrectGuesses(savedState.incorrectGuesses);
-            setAttemptsLeft(savedState.attemptsLeft);
-            setGameStatus(savedState.gameStatus);
+            if (savedState.word !== hardcodedWord) {
+                setWord(hardcodedWord);
+                setMaskedWord("_".repeat(hardcodedWord.length));
+                setGuesses([]);
+                setIncorrectGuesses([]);
+                setAttemptsLeft(6);
+                setGameStatus(null);
+            } else {
+                setWord(savedState.word);
+                setMaskedWord(savedState.maskedWord);
+                setGuesses(savedState.guesses);
+                setIncorrectGuesses(savedState.incorrectGuesses);
+                setAttemptsLeft(savedState.attemptsLeft);
+                setGameStatus(savedState.gameStatus);
+            }
         }
     }, [hardcodedWord, storageKey]);
 
