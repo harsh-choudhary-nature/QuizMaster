@@ -4,65 +4,66 @@ import styles from '../styles/QuizPage.module.css';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 15; // Increment this manually when you release a new set
+const QUIZ_VERSION = 16; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'The Uttar Pradesh government has launched the RISE app to make its vaccination programme more effective. RISE stands for-',
+    question: 'India won the 6th Asian Women\'s Kabaddi Championship 2025 by defeating which team in the final?',
     options: [
-      'Rapid Immunisation Skill Enhancement',
-      'Reflect, inquire, suggest, and elevate',
-      'Research Initiatives for Scientific Enrichment',
-      'Immunization Research for Scientific Promotion'
-    ],
-    correctOption: 0,
-    description: 'The RISE app launched by the Uttar Pradesh government stands for "Rapid Immunisation Skill Enhancement" to strengthen and streamline the state’s vaccination efforts.'
-  },
-  {
-    question: 'Exercise Khanjar is a joint military exercise between which two countries?',
-    options: [
-      'India and Iran',
-      'India & China',
-      'India and Kyrgyzstan',
-      'India & Nepal'
-    ],
-    correctOption: 2,
-    description: 'Exercise Khanjar is a joint military exercise conducted between India and Kyrgyzstan to enhance interoperability and bilateral cooperation.'
-  },
-  {
-    question: 'Who won the award for Best Performance (Male) in a Supporting Role at the International Indian Film Academy (IIFA) Awards 2025?',
-    options: [
-      'Kartik Aaryan',
-      'Ravi Kishan',
-      'Arijit Biswas',
-      'Raghav Juyal'
+      'Thailand',
+      'Iran',
+      'Japan',
+      'South Korea'
     ],
     correctOption: 1,
-    description: 'Ravi Kishan won the award for Best Performance (Male) in a Supporting Role at the IIFA Awards 2025 for his remarkable acting performance in Laapata Ladies.'
+    description: 'India defeated Iran to win the 6th Asian Women\'s Kabaddi Championship 2025, continuing their dominance in the sport.'
   },
   {
-    question: 'Co-founder of Care Earth Trust, Dr. Jayashree Venkatesan has been awarded in which category in the 2025 "Women Changer in the World of Wetlands" released by the Ramsar Secretariat?',
+    question: 'When is No Smoking Day observed every year?',
     options: [
-      'Contributing to Wetland Conservation',
-      'Promoting International Cooperation for Wetlands Category',
-      'Judicious use of wetlands',
-      'None of these'
-    ],
-    correctOption: 2,
-    description: 'Dr. Jayashree Venkatesan, co-founder of Care Earth Trust, was awarded in the "Wetland Wise Use" category in the 2025 "Women Changemakers in the World of Wetlands" list released by the Ramsar Secretariat.'
-  },
-  {
-    question: 'Where was the final of the 9th ICC Champions Trophy 2025 held?',
-    options: [
-      'Dubai, United Arab Emirates',
-      'Dhaka, Bangladesh',
-      'Colombo, Sri Lanka',
-      'Karachi, Pakistan'
+      'Second Wednesday of March',
+      'Third Wednesday of March',
+      'First Wednesday of March',
+      'Second Wednesday of April'
     ],
     correctOption: 0,
-    description: 'The final of the 9th ICC Champions Trophy 2025 was held in Dubai on 9 March.'
+    description: 'No Smoking Day is observed every year on the second Wednesday of March to raise awareness about the harmful effects of tobacco.'
+  },
+  {
+    question: 'Which edition of National Safety Week is observed from 4-10 March?',
+    options: [
+      '23rd',
+      '54th',
+      '65th',
+      '76th'
+    ],
+    correctOption: 1,
+    description: 'The 54th edition of National Safety Week was observed from 4–10 March 2025, promoting occupational safety and health across industries.'
+  },
+  {
+    question: 'Which will be the first Indian state to launch its own satellite?',
+    options: [
+      'Government of Assam',
+      'Government of Karnataka',
+      'Government of Manipur',
+      'Government of Maharashtra'
+    ],
+    correctOption: 0,
+    description: 'Assam will be the first Indian state to launch its own satellite. The satellite, named ASSAMSAT, is being developed in collaboration with the Indian Space Research Organisation (ISRO) and the Indian National Space Promotion and Authorization Center (IN-SPACe). The ASSAMSAT mission aims to provide critical data for socio-economic projects, including disaster management, agriculture, border security, and infrastructure development.'
+  },
+  {
+    question: 'Which state government has launched Mukhyamantri Balika Samridhi Yojana and Mukhyamantri Kanya Atmanirbhar Yojana in March 2025?',
+    options: [
+      'Manipur',
+      'Meghalaya',
+      'Tripura',
+      'Sikkim'
+    ],
+    correctOption: 2,
+    description: 'The Tripura government launched both the Mukhyamantri Balika Samridhi Yojana and the Mukhyamantri Kanya Atmanirbhar Yojana in March 2025.'
   }
 ];
+
 
 
 
