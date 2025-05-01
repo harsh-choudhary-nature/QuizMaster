@@ -4,66 +4,65 @@ import styles from '../styles/QuizPage.module.css';
 
 const LOCAL_STORAGE_KEY = 'quiz-progress';
 const VERSION_KEY = 'quiz-version';
-const QUIZ_VERSION = 16; // Increment this manually when you release a new set
+const QUIZ_VERSION = 17; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: 'India won the 6th Asian Women\'s Kabaddi Championship 2025 by defeating which team in the final?',
+    question: 'Who was appointed as the Chairman and Managing Director of Hindustan Petroleum Corporation (HPCL) on March 7?',
     options: [
-      'Thailand',
-      'Iran',
-      'Japan',
-      'South Korea'
+      'Sanjay Gupta',
+      'Anil Mehta',
+      'Rajesh Verma',
+      'Vikas Kaushal'
     ],
-    correctOption: 1,
-    description: 'India defeated Iran to win the 6th Asian Women\'s Kabaddi Championship 2025, continuing their dominance in the sport.'
+    correctOption: 3,
+    description: 'Vikas Kaushal was appointed as the Chairman and Managing Director of Hindustan Petroleum Corporation (HPCL) on March 7, 2025.'
   },
   {
-    question: 'When is No Smoking Day observed every year?',
+    question: 'In March 2025, PM Modi has become the first Indian to be awarded the highest civilian award of which of the following country?',
     options: [
-      'Second Wednesday of March',
-      'Third Wednesday of March',
-      'First Wednesday of March',
-      'Second Wednesday of April'
-    ],
-    correctOption: 0,
-    description: 'No Smoking Day is observed every year on the second Wednesday of March to raise awareness about the harmful effects of tobacco.'
-  },
-  {
-    question: 'Which edition of National Safety Week is observed from 4-10 March?',
-    options: [
-      '23rd',
-      '54th',
-      '65th',
-      '76th'
-    ],
-    correctOption: 1,
-    description: 'The 54th edition of National Safety Week was observed from 4–10 March 2025, promoting occupational safety and health across industries.'
-  },
-  {
-    question: 'Which will be the first Indian state to launch its own satellite?',
-    options: [
-      'Government of Assam',
-      'Government of Karnataka',
-      'Government of Manipur',
-      'Government of Maharashtra'
+      'Mauritius',
+      'Indonesia',
+      'Malaysia',
+      'Sri Lanka'
     ],
     correctOption: 0,
-    description: 'Assam will be the first Indian state to launch its own satellite. The satellite, named ASSAMSAT, is being developed in collaboration with the Indian Space Research Organisation (ISRO) and the Indian National Space Promotion and Authorization Center (IN-SPACe). The ASSAMSAT mission aims to provide critical data for socio-economic projects, including disaster management, agriculture, border security, and infrastructure development.'
+    description: 'Prime Minister Shri Narendra Modi receives the highest Civilian Award of Mauritius at the National Day Celebrations (March 12, 2025).'
   },
   {
-    question: 'Which state government has launched Mukhyamantri Balika Samridhi Yojana and Mukhyamantri Kanya Atmanirbhar Yojana in March 2025?',
+    question: 'India\'s first hydrogen train will be launched on _____________ by 31st March.',
     options: [
-      'Manipur',
-      'Meghalaya',
-      'Tripura',
-      'Sikkim'
+      'Agra-Kota Road',
+      'Mumbai-Ahmedabad route',
+      'Jind-Sonipat Road',
+      'None of the above'
     ],
     correctOption: 2,
-    description: 'The Tripura government launched both the Mukhyamantri Balika Samridhi Yojana and the Mukhyamantri Kanya Atmanirbhar Yojana in March 2025.'
+    description: 'India\'s first hydrogen-powered train is set to be launched on the Jind-Sonipat route in Haryana by 31st March 2025.'
+  },
+  {
+    question: 'Which is the world\'s second largest arms importer after Ukraine in the period 2020-24?',
+    options: [
+      'France',
+      'India',
+      'Russia',
+      'Belgium'
+    ],
+    correctOption: 1,
+    description: 'India was the world\'s second-largest arms importer after Ukraine during the 2020–24 period, according to the Stockholm International Peace Research Institute (SIPRI).'
+  },
+  {
+    question: 'The Commonwealth Games Federation (CGF) has changed its name to:',
+    options: [
+      'Commonwealth Athletics',
+      'Commonwealth Sport',
+      'Commonwealth Federation',
+      'Commonwealth Championships'
+    ],
+    correctOption: 1,
+    description: 'The Commonwealth Games Federation (CGF) has rebranded itself as the Commonwealth Sport to better align with its core sporting identity.'
   }
 ];
-
 
 
 
