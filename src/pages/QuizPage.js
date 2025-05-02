@@ -44,7 +44,7 @@ const defaultQuestions = [
     question:
       "India celebrates National Vaccination Day on 16th March every year. It marks the launch of the Pulse Polio Immunization Programme in ____.",
     options: ["1992", "1993", "1994", "1995"],
-    correctOption: 2,
+    correctOption: 3,
     description:
       "National Vaccination Day is observed on 16th March in India to commemorate the launch of the Pulse Polio Immunization Programme in 1995.",
   },
@@ -52,7 +52,7 @@ const defaultQuestions = [
     question:
       "SpaceX and __________ launched a crewed mission to bring astronauts Sunita Williams and Butch Wilmore from the ISS.",
     options: ["ISRO", "JAXA", "NASA", "None of these"],
-    correctOption: 3,
+    correctOption: 2,
     description:
       "SpaceX and NASA launched a mission to bring back astronauts Sunita Williams and Butch Wilmore from the ISS. 'None of these' is the correct answer.",
   },
