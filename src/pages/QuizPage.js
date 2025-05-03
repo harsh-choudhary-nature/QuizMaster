@@ -4,57 +4,63 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 18; // Increment this manually when you release a new set
+const QUIZ_VERSION = 19; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "Who won the Open section title of the FIDE 2025 World Junior Chess Championship?",
+      "In which two places were the Khelo India Winter Games 2025 held?",
     options: [
-      "Divya Deshmukh",
-      "Harika Dronavalli",
-      "Abhijeet Gupta",
-      "Pranav Venkatesh",
+      "Ladakh and Uttarakhand",
+      "Ladakh and Jammu & Kashmir",
+      "Himachal Pradesh & Sikkim",
+      "Arunachal Pradesh & Assam",
+    ],
+    correctOption: 1,
+    description:
+      "The Khelo India Winter Games 2025 were held in Ladakh and Jammu & Kashmir, promoting winter sports in India's northernmost regions.",
+  },
+  {
+    question:
+      "Who won the 15th Hockey India Senior Women's National Championship 2025 and where was it held?",
+    options: [
+      "Hockey Haryana, Haryana",
+      "Hockey Mizoram, Odisha",
+      "Hockey Bengal, Madhya Pradesh",
+      "Hockey Jharkhand, Haryana",
     ],
     correctOption: 3,
     description:
-      "Pranav Venkatesh clinched the Open section title of the FIDE 2025 World Junior Chess Championship, showcasing his rising prowess in the global chess arena.",
-  },
-  {
-    question: "When is Pi Day celebrated every year all over the world?",
-    options: ["14 March", "15 March", "16 March", "17 March"],
-    correctOption: 0,
-    description:
-      "Pi Day is celebrated every year on 14th March (3/14) to honor the mathematical constant π (pi), which is approximately equal to 3.14.",
+      "Hockey Jharkhand won the 15th Hockey India Senior Women's National Championship 2025, which was held in Haryana.",
   },
   {
     question:
-      "Which of the following is the theme of World Consumer Rights Day 2025?",
+      "How many properties were added to India's tentative list by UNESCO's World Heritage Centre in March 2025?",
+    options: ["five", "six", "seven", "eight"],
+    correctOption: 1,
+    description:
+      "Six sites, including Mudumal Megalithic Menhirs in Telangana and palace-fortresses of the Bundelas in Madhya Pradesh and Uttar Pradesh, have been added to India's tentative list by the UNESCO's World Heritage Centre.",
+  },
+  {
+    question:
+      "Where was the first temple of Chhatrapati Shivaji Maharaj inaugurated on the occasion of his birth anniversary?",
+    options: ["Maharashtra", "Madhya Pradesh", "Tamil Nadu", "Telangana"],
+    correctOption: 0,
+    description:
+      "The inauguration took place in Bhiwandi, Thane, on the occasion of Shivaji Maharaj's birth anniversary. The temple stands as a symbol of his heroism, valour, and enduring legacy, offering a sacred place for devotees to honour his contributions to India's history.",
+  },
+  {
+    question:
+      "Which film won the Best Film Award at the Asian Film Awards 2025?",
     options: [
-      "Sustainable lifestyle changes",
-      "Sustainable lifestyle",
-      "Better lifestyle changes",
-      "Lifestyle changes",
+      "'Techie Cometh'",
+      "Santosh",
+      "Black Dog",
+      "All We Imagine as Light",
     ],
-    correctOption: 0,
-    description:
-      "The theme for World Consumer Rights Day 2025 is 'Sustainable lifestyle changes', emphasizing the need for responsible consumption and sustainable living practices.",
-  },
-  {
-    question:
-      "India celebrates National Vaccination Day on 16th March every year. It marks the launch of the Pulse Polio Immunization Programme in ____.",
-    options: ["1992", "1993", "1994", "1995"],
     correctOption: 3,
     description:
-      "National Vaccination Day is observed on 16th March in India to commemorate the launch of the Pulse Polio Immunization Programme in 1995.",
-  },
-  {
-    question:
-      "SpaceX and __________ launched a crewed mission to bring astronauts Sunita Williams and Butch Wilmore from the ISS.",
-    options: ["ISRO", "JAXA", "NASA", "None of these"],
-    correctOption: 2,
-    description:
-      "SpaceX and NASA launched a mission to bring back astronauts Sunita Williams and Butch Wilmore from the ISS. 'None of these' is the correct answer.",
+      "'All We Imagine as Light' won the Best Film Award at the Asian Film Awards 2025, receiving widespread critical acclaim.",
   },
 ];
 

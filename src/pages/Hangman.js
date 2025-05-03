@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Hangman.module.css";
 
 const HangmanGame = () => {
-  const hardcodedWord = "PLASMA"; // Can be changed to a dynamic word daily if needed.
+  const hardcodedWord = "PYRAMID"; // Can be changed to a dynamic word daily if needed.
   const wordHint =
-    "A state of matter, like solid, liquid, or gas — often found in stars and neon signs";
+    "Ancient structures with a square base and triangular sides — often associated with Egypt";
   const storageKey = `HANGMAN WORD`;
 
   const [word, setWord] = useState("");
