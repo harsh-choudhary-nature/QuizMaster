@@ -4,63 +4,57 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 20; // Increment this manually when you release a new set
+const QUIZ_VERSION = 21; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "Chandrayaan-5 mission has been approved by the Government of India. Under which Indian astronauts will be landed on the moon by ______?",
-    options: ["2035", "2029", "2070", "2040"],
+      "Amit Shah inaugurated the Lachit Borphukan Police Academy in Dergaon, ________?",
+    options: ["Uttarakhand", "Sikkim", "Arunachal Pradesh", "Assam"],
     correctOption: 3,
     description:
-      "The Indian government has approved the Chandrayaan-5 mission with the aim of landing Indian astronauts on the moon by 2040, marking a significant milestone in the nation's space exploration ambitions.",
+      "Union Home Minister Amit Shah inaugurated the Lachit Borphukan Police Academy in Dergaon, Assam, emphasizing the state's importance in the internal security framework.",
   },
   {
     question:
-      "Who launched a dedicated mobile application for the Prime Minister's Internship Scheme?",
+      "Which city will launch India's first PPP green waste processing plant?",
+    options: ["Jaipur", "Kanpur", "Indore", "Raipur"],
+    correctOption: 2,
+    description:
+      "Indore, known for its clean city initiatives, is set to launch India’s first Public-Private Partnership (PPP) based green waste processing plant, enhancing its sustainability efforts.",
+  },
+  {
+    question:
+      "Which edition of the bilateral naval exercise 'Varuna 2025' began on March 19?",
+    options: ["26th", "29th", "23rd", "43rd"],
+    correctOption: 2,
+    description:
+      "The bilateral naval exercise 'Varuna 2025', which began on March 19, is the 23rd edition of the exercise between the Indian and French Navies. It was held in the Arabian Sea.",
+  },
+  {
+    question:
+      "Rank the top 5 states with the highest number of households benefitted under 'PM Surya Ghar: Free Electricity Scheme'.",
     options: [
-      "Narendra Modi",
-      "Amit Shah",
-      "Rajnath Singh",
-      "Nirmala Sitharaman",
+      "Gujarat>Maharashtra>Uttar Pradesh>Rajasthan>Kerala",
+      "Maharashtra>Uttar Pradesh>Kerala>Rajasthan>Gujarat",
+      "Uttar Pradesh>Kerala>Rajasthan>Gujarat>Maharashtra",
+      "Gujarat>Maharashtra>Uttar Pradesh>Kerala>Rajasthan",
     ],
     correctOption: 3,
     description:
-      "The Prime Minister's Internship Scheme (PMIS) took a significant leap forward with the launch of its dedicated mobile app by Union Finance Minister Smt. Nirmala Sitharaman on March 17, 2025.",
+      "Gujarat leads the list of states with the highest number of households benefitted under the 'PM Surya Ghar: Free Electricity Scheme', followed by Maharashtra, Uttar Pradesh, Kerala and Rajasthan.",
   },
   {
-    question:
-      "Who won the Best Player of the Year (Men) award for Hockey India's Balbir Singh Senior Award for the year 2024?",
+    question: "Which team has won its second Women's Premier League title?",
     options: [
-      "Harmanpreet Singh",
-      "Savita Punia",
-      "Ajit Pal Singh",
-      "Amit Rohidas",
+      "Delhi Capitals",
+      "Mumbai Indians",
+      "Chennai Super Kings",
+      "Gujarat Giants",
     ],
-    correctOption: 0,
+    correctOption: 1,
     description:
-      "Harmanpreet Singh was awarded the Best Player of the Year (Men) under the Balbir Singh Senior Award by Hockey India in 2024 for his exceptional performance and leadership.",
-  },
-  {
-    question:
-      "Where was the Atal Bihari Vajpayee Institute of Public Service and Innovation jointly inaugurated by Prime Minister Narendra Modi and Prime Minister of Mauritius Navinchandra Ramgoolam, on 12th March?",
-    options: [
-      "Reduit, Mauritius",
-      "New Delhi, India",
-      "Port Louis, Mauritius",
-      "Gujarat, India",
-    ],
-    correctOption: 0,
-    description:
-      "The Atal Bihari Vajpayee Institute of Public Service and Innovation was inaugurated in Reduit, Mauritius, as a symbol of Indo-Mauritian cooperation in governance and innovation.",
-  },
-  {
-    question:
-      "The Central Government has imposed a ban on the Awami Action Committee and Jammu and Kashmir Ittihad-ul-Muslimeen for how many years?",
-    options: ["two years", "three years", "four years", "five years"],
-    correctOption: 3,
-    description:
-      "The Government of India has banned the Awami Action Committee and Jammu and Kashmir Ittihad-ul-Muslimeen for five years due to their alleged involvement in activities prejudicial to the sovereignty and integrity of India.",
+      "Mumbai Indians clinched their second Women's Premier League (WPL) title, showcasing dominant performances throughout the season.",
   },
 ];
 
