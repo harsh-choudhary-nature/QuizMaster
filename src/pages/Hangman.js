@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "../styles/Hangman.module.css";
 
 const HangmanGame = () => {
@@ -80,24 +80,27 @@ const HangmanGame = () => {
     }
   }, [maskedWord, attemptsLeft, word]);
 
-  const handleGuess = (letter) => {
-    if (guesses.includes(letter) || gameStatus) return;
+  const handleGuess = useCallback(
+    (letter) => {
+      if (guesses.includes(letter) || gameStatus) return;
 
-    setGuesses([...guesses, letter]);
+      setGuesses((prev) => [...prev, letter]);
 
-    if (word.includes(letter)) {
-      let newMaskedWord = maskedWord.split("");
-      for (let i = 0; i < word.length; i++) {
-        if (word[i] === letter) {
-          newMaskedWord[i] = letter;
+      if (word.includes(letter)) {
+        let newMaskedWord = maskedWord.split("");
+        for (let i = 0; i < word.length; i++) {
+          if (word[i] === letter) {
+            newMaskedWord[i] = letter;
+          }
         }
+        setMaskedWord(newMaskedWord.join(""));
+      } else {
+        setIncorrectGuesses((prev) => [...prev, letter]);
+        setAttemptsLeft((prev) => prev - 1);
       }
-      setMaskedWord(newMaskedWord.join(""));
-    } else {
-      setIncorrectGuesses([...incorrectGuesses, letter]);
-      setAttemptsLeft(attemptsLeft - 1);
-    }
-  };
+    },
+    [guesses, gameStatus, word, maskedWord]
+  );
 
   const handleReset = () => {
     localStorage.removeItem(storageKey);
@@ -107,6 +110,21 @@ const HangmanGame = () => {
     setAttemptsLeft(6);
     setGameStatus(null);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const letter = event.key.toUpperCase();
+      if (/^[A-Z]$/.test(letter) && !guesses.includes(letter) && !gameStatus) {
+        handleGuess(letter);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [guesses, gameStatus, handleGuess]); // Include dependencies
 
   const isLetterCorrect = (letter) => {
     return word.includes(letter);
