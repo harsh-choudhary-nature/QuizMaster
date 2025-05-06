@@ -4,57 +4,57 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 21; // Increment this manually when you release a new set
+const QUIZ_VERSION = 22; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "Amit Shah inaugurated the Lachit Borphukan Police Academy in Dergaon, ________?",
-    options: ["Uttarakhand", "Sikkim", "Arunachal Pradesh", "Assam"],
+      "The International Cricket Council (ICC) has announced the ICC Men's Player for February 2025. Who is he?",
+    options: ["Rohit Sharma", "Hardik Pandya", "KL Rahul", "Shubman Gill"],
     correctOption: 3,
     description:
-      "Union Home Minister Amit Shah inaugurated the Lachit Borphukan Police Academy in Dergaon, Assam, emphasizing the state's importance in the internal security framework.",
+      "Shubman Gill was named the ICC Men's Player of the Month for February 2025 for his outstanding performance in international cricket.",
   },
   {
-    question:
-      "Which city will launch India's first PPP green waste processing plant?",
-    options: ["Jaipur", "Kanpur", "Indore", "Raipur"],
-    correctOption: 2,
+    question: "When is World Sparrow Day celebrated every year?",
+    options: ["20 March", "21 March", "22 March", "19 March"],
+    correctOption: 0,
     description:
-      "Indore, known for its clean city initiatives, is set to launch India’s first Public-Private Partnership (PPP) based green waste processing plant, enhancing its sustainability efforts.",
+      "World Sparrow Day is celebrated every year on 20 March to raise awareness about the house sparrow and other common birds in urban environments.",
   },
   {
     question:
-      "Which edition of the bilateral naval exercise 'Varuna 2025' began on March 19?",
-    options: ["26th", "29th", "23rd", "43rd"],
-    correctOption: 2,
-    description:
-      "The bilateral naval exercise 'Varuna 2025', which began on March 19, is the 23rd edition of the exercise between the Indian and French Navies. It was held in the Arabian Sea.",
-  },
-  {
-    question:
-      "Rank the top 5 states with the highest number of households benefitted under 'PM Surya Ghar: Free Electricity Scheme'.",
+      "Who became the first woman and first African to be elected president of the IOC?",
     options: [
-      "Gujarat>Maharashtra>Uttar Pradesh>Rajasthan>Kerala",
-      "Maharashtra>Uttar Pradesh>Kerala>Rajasthan>Gujarat",
-      "Uttar Pradesh>Kerala>Rajasthan>Gujarat>Maharashtra",
-      "Gujarat>Maharashtra>Uttar Pradesh>Kerala>Rajasthan",
+      "Christy Coventry",
+      "Michael Martin",
+      "Jotham Napat",
+      "None of the above",
     ],
-    correctOption: 3,
+    correctOption: 0,
     description:
-      "Gujarat leads the list of states with the highest number of households benefitted under the 'PM Surya Ghar: Free Electricity Scheme', followed by Maharashtra, Uttar Pradesh, Kerala and Rajasthan.",
+      "Kirsty Coventry became the first woman and first African to be elected president of the International Olympic Committee (IOC). She was elected on March 20, 2025.",
   },
   {
-    question: "Which team has won its second Women's Premier League title?",
+    question:
+      "Which initiative based on the Uttar Pradesh model has been launched by the Delhi Police to improve the safety of women in the national capital?",
     options: [
-      "Delhi Capitals",
-      "Mumbai Indians",
-      "Chennai Super Kings",
-      "Gujarat Giants",
+      "Etiquette squads",
+      "Security Squad",
+      "Nari Shakti Units",
+      "Mahila Rakshak Dal",
     ],
+    correctOption: 0,
+    description:
+      "Taking inspiration from the Yogi Adityanath-led Uttar Pradesh model, Delhi Police is set to launch 'Shishtachar' squads, also known as 'anti-eve teasing' squads, to improve women's safety in the national capital.",
+  },
+  {
+    question:
+      "Which state of India has imposed a fee of Rs 50 per person on tourists visiting the state/UT from March 2025?",
+    options: ["Assam", "Sikkim", "Jammu & Kashmir", "Ladakh"],
     correctOption: 1,
     description:
-      "Mumbai Indians clinched their second Women's Premier League (WPL) title, showcasing dominant performances throughout the season.",
+      "Sikkim has imposed a fee of Rs 50 per tourist visiting the state, starting from March 2025, under the Sikkim Registration of Tourist Trade Rules, 2025.",
   },
 ];
 
