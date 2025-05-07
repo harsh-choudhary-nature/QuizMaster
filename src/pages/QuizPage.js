@@ -4,57 +4,70 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 22; // Increment this manually when you release a new set
+const QUIZ_VERSION = 23; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "The International Cricket Council (ICC) has announced the ICC Men's Player for February 2025. Who is he?",
-    options: ["Rohit Sharma", "Hardik Pandya", "KL Rahul", "Shubman Gill"],
-    correctOption: 3,
-    description:
-      "Shubman Gill was named the ICC Men's Player of the Month for February 2025 for his outstanding performance in international cricket.",
-  },
-  {
-    question: "When is World Sparrow Day celebrated every year?",
-    options: ["20 March", "21 March", "22 March", "19 March"],
-    correctOption: 0,
-    description:
-      "World Sparrow Day is celebrated every year on 20 March to raise awareness about the house sparrow and other common birds in urban environments.",
-  },
-  {
-    question:
-      "Who became the first woman and first African to be elected president of the IOC?",
+      "Who has instituted the Ramnath Goenka Award for Excellence in Journalism?",
     options: [
-      "Christy Coventry",
-      "Michael Martin",
-      "Jotham Napat",
-      "None of the above",
+      "Indian Express Group",
+      "The Hindu Group",
+      "Aaj Tak Group",
+      "G Group",
     ],
     correctOption: 0,
     description:
-      "Kirsty Coventry became the first woman and first African to be elected president of the International Olympic Committee (IOC). She was elected on March 20, 2025.",
+      "The Ramnath Goenka Award for Excellence in Journalism has been instituted by the Indian Express Group to honor journalists for their courage and commitment to responsible journalism.",
   },
   {
     question:
-      "Which initiative based on the Uttar Pradesh model has been launched by the Delhi Police to improve the safety of women in the national capital?",
+      "India has secured ______ rank among 33 countries in the Free Speech Index.",
+    options: ["22nd", "23rd", "24th", "25th"],
+    correctOption: 2,
+    description:
+      "India ranked 24th out of 33 countries in the Free Speech Index, reflecting ongoing concerns about freedom of expression in the country.",
+  },
+  {
+    question:
+      "Famous Bollywood actor _______ was officially chosen as 'Fit India Icon'.",
     options: [
-      "Etiquette squads",
-      "Security Squad",
-      "Nari Shakti Units",
-      "Mahila Rakshak Dal",
+      "Ayushmann Khurrana",
+      "Akshay Kumar",
+      "Pankaj Tripathi",
+      "None of these",
     ],
     correctOption: 0,
     description:
-      "Taking inspiration from the Yogi Adityanath-led Uttar Pradesh model, Delhi Police is set to launch 'Shishtachar' squads, also known as 'anti-eve teasing' squads, to improve women's safety in the national capital.",
+      "Bollywood actor Ayushmann Khurrana has been officially named the Fit India Icon by Union Sports Minister Mansukh Mandaviya at the Fit India Movement's inaugural ceremony in the national capital.",
   },
   {
     question:
-      "Which state of India has imposed a fee of Rs 50 per person on tourists visiting the state/UT from March 2025?",
-    options: ["Assam", "Sikkim", "Jammu & Kashmir", "Ladakh"],
+      "In which year did the United Nations General Assembly declare 21st March as the International Day of Forests?",
+    options: ["2010", "2012", "2015", "1009"],
     correctOption: 1,
     description:
-      "Sikkim has imposed a fee of Rs 50 per tourist visiting the state, starting from March 2025, under the Sikkim Registration of Tourist Trade Rules, 2025.",
+      "The United Nations General Assembly declared 21st March as the International Day of Forests in 2012 to raise awareness about the importance of forests.",
+  },
+  {
+    question: "What is the theme of World Water Day 2025?",
+    options: [
+      "Glacier conservation",
+      "Leveraging Water for Peace",
+      "Accelerating change to solve the water and sanitation crisis",
+      "Groundwater: Making the Invisible Visible",
+    ],
+    correctOption: 0,
+    description:
+      'The theme of World Water Day 2025 is "Glacier Preservation". This theme highlights the critical role glaciers play in providing freshwater supplies and the urgent need to protect them from the impacts of climate change.',
+  },
+  {
+    question:
+      "The world's largest white hydrogen deposit has been discovered in ___________.",
+    options: ["Italy", "Germany", "Georgia", "France"],
+    correctOption: 3,
+    description:
+      "France has discovered the world's largest deposit of white hydrogen, a naturally occurring clean fuel with significant potential for the energy transition.",
   },
 ];
 
