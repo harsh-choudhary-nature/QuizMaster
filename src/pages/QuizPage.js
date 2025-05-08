@@ -4,70 +4,66 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 23; // Increment this manually when you release a new set
+const QUIZ_VERSION = 24; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "Who has instituted the Ramnath Goenka Award for Excellence in Journalism?",
+      "Where is the headquarters of International Astronomical Union (IAU) located?",
     options: [
-      "Indian Express Group",
-      "The Hindu Group",
-      "Aaj Tak Group",
-      "G Group",
+      "New York (USA)",
+      "Paris, France",
+      "Geneva, Switzerland",
+      "Brussels, Belgium",
+    ],
+    correctOption: 1,
+    description:
+      "The headquarters of the International Astronomical Union (IAU) is located in Paris, France. It is a key organization promoting and safeguarding the science of astronomy through international cooperation.",
+  },
+  {
+    question: "What is the theme of World Meteorological Day 2025?",
+    options: [
+      "Closing the Early Warning Gap Together",
+      "Sustainability",
+      "Measurements that support the global food system",
+      "Metrology in the Digital Age",
     ],
     correctOption: 0,
     description:
-      "The Ramnath Goenka Award for Excellence in Journalism has been instituted by the Indian Express Group to honor journalists for their courage and commitment to responsible journalism.",
+      "Every 23 March, the World Meteorological Organization commemorates the coming into force of the Convention establishing the World Meteorological Organization on 23 March 1950. The theme for World Meteorological Day 2025 is “Closing the early warning gap together.”",
+  },
+  {
+    question: "When is 'World TB Day' observed every year?",
+    options: ["24 March", "23 March", "25 March", "26 March"],
+    correctOption: 0,
+    description:
+      "World TB Day is observed on 24 March every year to raise public awareness about the devastating health, social, and economic consequences of tuberculosis.",
   },
   {
     question:
-      "India has secured ______ rank among 33 countries in the Free Speech Index.",
-    options: ["22nd", "23rd", "24th", "25th"],
+      "Who launched the Jal Shakti Abhiyan: Catch the Rain-2025 on World Water Day in Panchkula, Haryana?",
+    options: [
+      "Ministry of Agriculture and Farmers Welfare",
+      "Ministry of Cooperatives",
+      "Ministry of Jal Shakti",
+      "Ministry of Rural Development",
+    ],
     correctOption: 2,
     description:
-      "India ranked 24th out of 33 countries in the Free Speech Index, reflecting ongoing concerns about freedom of expression in the country.",
+      "The Ministry of Jal Shakti launched the Jal Shakti Abhiyan: Catch the Rain-2025 campaign on World Water Day in Panchkula, Haryana, to promote water conservation efforts across the country.",
   },
   {
     question:
-      "Famous Bollywood actor _______ was officially chosen as 'Fit India Icon'.",
+      "Who won the women's title in the PSA Challenger Squash tournament in Chennai?",
     options: [
-      "Ayushmann Khurrana",
-      "Akshay Kumar",
-      "Pankaj Tripathi",
+      "Anahat Singh",
+      "Veer Chotarani",
+      "Melville Sinnymanico",
       "None of these",
     ],
     correctOption: 0,
     description:
-      "Bollywood actor Ayushmann Khurrana has been officially named the Fit India Icon by Union Sports Minister Mansukh Mandaviya at the Fit India Movement's inaugural ceremony in the national capital.",
-  },
-  {
-    question:
-      "In which year did the United Nations General Assembly declare 21st March as the International Day of Forests?",
-    options: ["2010", "2012", "2015", "1009"],
-    correctOption: 1,
-    description:
-      "The United Nations General Assembly declared 21st March as the International Day of Forests in 2012 to raise awareness about the importance of forests.",
-  },
-  {
-    question: "What is the theme of World Water Day 2025?",
-    options: [
-      "Glacier conservation",
-      "Leveraging Water for Peace",
-      "Accelerating change to solve the water and sanitation crisis",
-      "Groundwater: Making the Invisible Visible",
-    ],
-    correctOption: 0,
-    description:
-      'The theme of World Water Day 2025 is "Glacier Preservation". This theme highlights the critical role glaciers play in providing freshwater supplies and the urgent need to protect them from the impacts of climate change.',
-  },
-  {
-    question:
-      "The world's largest white hydrogen deposit has been discovered in ___________.",
-    options: ["Italy", "Germany", "Georgia", "France"],
-    correctOption: 3,
-    description:
-      "France has discovered the world's largest deposit of white hydrogen, a naturally occurring clean fuel with significant potential for the energy transition.",
+      "Anahat Singh won the women's title in the PSA Challenger Squash tournament held in Chennai, showcasing her rising talent in the sport.",
   },
 ];
 
