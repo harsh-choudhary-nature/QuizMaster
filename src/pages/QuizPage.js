@@ -4,66 +4,51 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 24; // Increment this manually when you release a new set
+const QUIZ_VERSION = 25; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question:
-      "Where is the headquarters of International Astronomical Union (IAU) located?",
-    options: [
-      "New York (USA)",
-      "Paris, France",
-      "Geneva, Switzerland",
-      "Brussels, Belgium",
-    ],
+    question: "Where was the Kabaddi World Cup 2025 held?",
+    options: ["Iran", "England", "India", "South Korea"],
     correctOption: 1,
     description:
-      "The headquarters of the International Astronomical Union (IAU) is located in Paris, France. It is a key organization promoting and safeguarding the science of astronomy through international cooperation.",
-  },
-  {
-    question: "What is the theme of World Meteorological Day 2025?",
-    options: [
-      "Closing the Early Warning Gap Together",
-      "Sustainability",
-      "Measurements that support the global food system",
-      "Metrology in the Digital Age",
-    ],
-    correctOption: 0,
-    description:
-      "Every 23 March, the World Meteorological Organization commemorates the coming into force of the Convention establishing the World Meteorological Organization on 23 March 1950. The theme for World Meteorological Day 2025 is “Closing the early warning gap together.”",
-  },
-  {
-    question: "When is 'World TB Day' observed every year?",
-    options: ["24 March", "23 March", "25 March", "26 March"],
-    correctOption: 0,
-    description:
-      "World TB Day is observed on 24 March every year to raise public awareness about the devastating health, social, and economic consequences of tuberculosis.",
+      "The 2025 Kabaddi World Cup is the second edition of the Kabaddi World Cup held under the authority of World Kabaddi. It was hosted in the West Midlands, England, during 17–23 March 2025.",
   },
   {
     question:
-      "Who launched the Jal Shakti Abhiyan: Catch the Rain-2025 on World Water Day in Panchkula, Haryana?",
-    options: [
-      "Ministry of Agriculture and Farmers Welfare",
-      "Ministry of Cooperatives",
-      "Ministry of Jal Shakti",
-      "Ministry of Rural Development",
-    ],
-    correctOption: 2,
+      "Which country has announced its decision to join the New Development Bank in March 2025?",
+    options: ["India", "Indonesia", "Brazil", "Russia"],
+    correctOption: 1,
     description:
-      "The Ministry of Jal Shakti launched the Jal Shakti Abhiyan: Catch the Rain-2025 campaign on World Water Day in Panchkula, Haryana, to promote water conservation efforts across the country.",
+      "In March 2025, Indonesia announced its decision to join the New Development Bank, aiming to strengthen multilateral economic cooperation.",
+  },
+  {
+    question: "Project 1135.6 class second warship (frigate) ___",
+    options: ["Tavasya", "Triput", "Betwa", "Beas"],
+    correctOption: 0,
+    description:
+      "The second frigate of the Project 1135.6 class, a Talwar-class warship, is named Tavasya.",
   },
   {
     question:
-      "Who won the women's title in the PSA Challenger Squash tournament in Chennai?",
-    options: [
-      "Anahat Singh",
-      "Veer Chotarani",
-      "Melville Sinnymanico",
-      "None of these",
-    ],
-    correctOption: 0,
+      "Which state government has announced a scheme to conduct a caste-based census in the next financial year?",
+    options: ["Uttar Pradesh", "Madhya Pradesh", "Bihar", "Jharkhand"],
+    correctOption: 3,
     description:
-      "Anahat Singh won the women's title in the PSA Challenger Squash tournament held in Chennai, showcasing her rising talent in the sport.",
+      "The Jharkhand state government announced plans to conduct a caste-based census in the next financial year, following the footsteps of Bihar.",
+  },
+  {
+    question:
+      "Kerala becomes the first Indian state to set up Senior Citizens Commission. What is the purpose of the Commission?",
+    options: [
+      "The scheme provides social security to workers in the unorganized sector, including senior citizens.",
+      "The scheme honours eminent institutions engaged in the service of senior citizens and elderly persons.",
+      "The objective of the scheme is to provide protection to senior citizens with monthly income of more than Rs. 15,000 and suffering from age-related disability/infirmity.",
+      "To ensure rehabilitation, protection and empowerment of senior citizens.",
+    ],
+    correctOption: 3,
+    description:
+      "Kerala set up India’s first Senior Citizens Commission with the aim to ensure rehabilitation, protection, and empowerment of senior citizens.",
   },
 ];
 
