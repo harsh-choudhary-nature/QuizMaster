@@ -4,51 +4,53 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 25; // Increment this manually when you release a new set
+const QUIZ_VERSION = 26; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
-    question: "Where was the Kabaddi World Cup 2025 held?",
-    options: ["Iran", "England", "India", "South Korea"],
-    correctOption: 1,
-    description:
-      "The 2025 Kabaddi World Cup is the second edition of the Kabaddi World Cup held under the authority of World Kabaddi. It was hosted in the West Midlands, England, during 17–23 March 2025.",
-  },
-  {
     question:
-      "Which country has announced its decision to join the New Development Bank in March 2025?",
-    options: ["India", "Indonesia", "Brazil", "Russia"],
-    correctOption: 1,
-    description:
-      "In March 2025, Indonesia announced its decision to join the New Development Bank, aiming to strengthen multilateral economic cooperation.",
-  },
-  {
-    question: "Project 1135.6 class second warship (frigate) ___",
-    options: ["Tavasya", "Triput", "Betwa", "Beas"],
-    correctOption: 0,
-    description:
-      "The second frigate of the Project 1135.6 class, a Talwar-class warship, is named Tavasya.",
-  },
-  {
-    question:
-      "Which state government has announced a scheme to conduct a caste-based census in the next financial year?",
-    options: ["Uttar Pradesh", "Madhya Pradesh", "Bihar", "Jharkhand"],
+      "Who has been appointed as the new Finance Secretary, replacing Tuhin Kanta Pandey?",
+    options: ["Rajiv Mehrishi", "Rajiv Kumar", "Shaktikanta Das", "Ajay Seth"],
     correctOption: 3,
     description:
-      "The Jharkhand state government announced plans to conduct a caste-based census in the next financial year, following the footsteps of Bihar.",
+      "Ajay Seth has been appointed as the new Finance Secretary, succeeding Tuhin Kanta Pandey in 2025.",
   },
   {
     question:
-      "Kerala becomes the first Indian state to set up Senior Citizens Commission. What is the purpose of the Commission?",
+      "What is the name of the first India-Africa maritime naval exercise to be held in April 2025?",
+    options: ["Aikeyme", "Samudra Shakti", "La Peros", "Al-Mohad Al-Hindi"],
+    correctOption: 0,
+    description:
+      "The first India-Africa maritime naval exercise, scheduled for April 2025, is named Aikeyme.",
+  },
+  {
+    question:
+      "Which medal did the Indian team win in the mixed quad category event at the ISTAF Sepak Takraw World Cup 2025?",
+    options: ["Gold Medal", "silver medal", "bronze medal", "None of these"],
+    correctOption: 2,
+    description:
+      "India secured the bronze medal in the mixed quad category at the ISTAF Sepak Takraw World Cup 2025.",
+  },
+  {
+    question:
+      "World Theatre Day (WTD) was initiated in 1961 by which international institution?",
     options: [
-      "The scheme provides social security to workers in the unorganized sector, including senior citizens.",
-      "The scheme honours eminent institutions engaged in the service of senior citizens and elderly persons.",
-      "The objective of the scheme is to provide protection to senior citizens with monthly income of more than Rs. 15,000 and suffering from age-related disability/infirmity.",
-      "To ensure rehabilitation, protection and empowerment of senior citizens.",
+      "International Monetary Fund and World Bank",
+      "European Union",
+      "Shanghai Cooperation Organization",
+      "International Theatre Institute",
     ],
     correctOption: 3,
     description:
-      "Kerala set up India’s first Senior Citizens Commission with the aim to ensure rehabilitation, protection, and empowerment of senior citizens.",
+      "World Theatre Day was initiated in 1961 by the International Theatre Institute to promote theatre across the world.",
+  },
+  {
+    question:
+      "The Department of Posts released a commemorative postage stamp on the occasion of the ________ birth anniversary of the eminent saint, Mata Karma.",
+    options: ["1009th", "1029th", "1019th", "1059th"],
+    correctOption: 0,
+    description:
+      "The Department of Posts released a commemorative postage stamp on the occasion of the 1009th birth anniversary of Mata Karma.",
   },
 ];
 

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import styles from "../styles/Hangman.module.css";
 
 const HangmanGame = () => {
-  const hardcodedWord = "BALLOON"; // Can be changed to a dynamic word daily if needed.
-  const wordHint = "It rises with helium and is often seen at parties";
+  const hardcodedWord = "UMBRELLA"; // Can be changed to a dynamic word daily if needed.
+  const wordHint = "You take me out when it starts to pour";
   const storageKey = `HANGMAN WORD`;
 
   const [word, setWord] = useState("");
