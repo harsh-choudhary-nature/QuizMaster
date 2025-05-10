@@ -1,20 +1,24 @@
-import './App.css';
-import QuizPage from './pages/QuizPage';
-import { Analytics } from '@vercel/analytics/react';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import RegisterPage from './pages/RegisterPage';
-import LoginPage from './pages/LoginPage';
-import Blogs from './pages/Blogs';
-import CreateAndEditBlog from './pages/CreateAndEditBlog';
-import BlogDetail from './pages/BlogDetail';
-import Profile from './pages/Profile';
-import GamesPage from './pages/GamesPage';
-import HangmanGame from './pages/Hangman';
-
+import "./App.css";
+import QuizPage from "./pages/QuizPage";
+import { Analytics } from "@vercel/analytics/react";
+import Navbar from "./components/Navbar";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import Blogs from "./pages/Blogs";
+import CreateAndEditBlog from "./pages/CreateAndEditBlog";
+import BlogDetail from "./pages/BlogDetail";
+import Profile from "./pages/Profile";
+import GamesPage from "./pages/GamesPage";
+import HangmanGame from "./pages/Hangman";
+import PianoPlayer from "./pages/PianoPlayer";
 
 function App() {
-
   return (
     <Router>
       <Navbar />
@@ -30,6 +34,7 @@ function App() {
           <Route path="/games" element={<GamesPage />} />
           <Route path="/games/daily-quiz" element={<QuizPage />} />
           <Route path="/games/hangman" element={<HangmanGame />} />
+          <Route path="/games/pianoplayer" element={<PianoPlayer />} />
           <Route path="*" element={<Navigate to="/games" replace />} />
         </Routes>
       </div>

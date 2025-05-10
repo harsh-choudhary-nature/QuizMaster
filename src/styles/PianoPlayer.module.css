@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to right, #3b4244, #1e1f1f);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  min-width: 80%;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.piano {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden; /* Prevents vertical scrolling */
+  white-space: nowrap; /* Prevents buttons from wrapping to next line */
+  width: 100%; /* Takes full width of container */
+  padding: 1rem 0;
+  gap: 0.5rem;
+  scrollbar-width: thin;
+  justify-content: space-between;
+}
+
+.key {
+  width: 60px;
+  height: 200px;
+  background-color: #ffffff10;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.key:hover {
+  background-color: #ff6347;
+  transform: scale(0.95);
+}
+
+.pressed {
+  background-color: #ff6347; 
+  transform: scale(0.95);
+}
+
+.startButton {
+  width: 200px;
+  height: 50px;
+  background-color: #4caf50;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.startButton:hover {
+  background-color: #45a049;
+}
+
+/* Style for the Exit Piano button */
+.exitButton {
+  width: 200px;
+  height: 50px;
+  background-color: #ff4c4c;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+}
+
+.exitButton:hover {
+  background-color: #e74c3c;
+}
