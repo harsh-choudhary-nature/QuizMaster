@@ -3,7 +3,7 @@ import styles from "../styles/PianoPlayer.module.css";
 
 const notes = [
   { note: "A3", freq: 220.0, key: "a" },
-  { note: "A♯3/B♭3", freq: 233.08, key: "s" },
+  { note: "A♯3", freq: 233.08, key: "s" },
   { note: "B3", freq: 246.94, key: "z" },
   { note: "C", freq: 261.63, key: "x" },
   { note: "D", freq: 293.66, key: "c" },
@@ -25,6 +25,9 @@ const PianoPlayer = () => {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const [pressedKey, setPressedKey] = useState(null);
   const timeoutRef = useRef(null);
+  const activeOscillatorsRef = useRef({});
+  const masterGainRef = useRef(null);
+  const cleanupTimeoutsRef = useRef({});
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -41,12 +44,14 @@ const PianoPlayer = () => {
   }, []);
 
   useEffect(() => {
+    if (!started) return;
+
     const handleKeyDown = (e) => {
       e.preventDefault();
       const pressedKey = e.key.toLowerCase();
       const matchedNote = notes.find((n) => n.key === pressedKey);
       if (matchedNote) {
-        playNote(matchedNote.freq);
+        playNote(matchedNote.key, matchedNote.freq);
         setPressedKey(pressedKey);
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current);
@@ -59,7 +64,7 @@ const PianoPlayer = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [started]);
 
   const enterFullscreenAndLock = async () => {
     try {
@@ -82,27 +87,85 @@ const PianoPlayer = () => {
     } catch (err) {
       console.warn("Failed to exit fullscreen:", err);
     } finally {
+      stopAllSounds();
       setStarted(false);
     }
   };
 
-  const playNote = (frequency) => {
+  const stopAllSounds = () => {
+    Object.values(activeOscillatorsRef.current).forEach(
+      ({ oscillator, gain }) => {
+        try {
+          oscillator.stop();
+          gain.disconnect();
+        } catch (_) {}
+      }
+    );
+    activeOscillatorsRef.current = {};
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    Object.values(cleanupTimeoutsRef.current).forEach(clearTimeout);
+    cleanupTimeoutsRef.current = {};
+
+    setPressedKey(null);
+  };
+
+  const playNote = (key, frequency) => {
     const audioCtx =
       audioCtxRef.current ||
       new (window.AudioContext || window.webkitAudioContext)();
     audioCtxRef.current = audioCtx;
+
+    if (!masterGainRef.current) {
+      const masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.8, audioCtx.currentTime); // keep output safe
+      masterGain.connect(audioCtx.destination);
+      masterGainRef.current = masterGain;
+    }
+
+    // Stop existing oscillator for this key
+    const existing = activeOscillatorsRef.current[key];
+    if (existing) {
+      try {
+        existing.oscillator.stop();
+      } catch (_) {}
+      existing.gain.disconnect();
+      delete activeOscillatorsRef.current[key];
+    }
 
     const oscillator = audioCtx.createOscillator();
     const gainNode = audioCtx.createGain();
 
     oscillator.type = "sine";
     oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-    gainNode.gain.setValueAtTime(1, audioCtx.currentTime); // adjust volume here
+
+    // Apply smooth attack & release to prevent popping
+    const now = audioCtx.currentTime;
+    const attack = 0.02; // smooth start
+    const release = 0.1; // smooth fade out
+    const duration = 0.4;
+
+    gainNode.gain.setValueAtTime(0, now);
+    gainNode.gain.linearRampToValueAtTime(0.7, now + attack); // attack
+    gainNode.gain.linearRampToValueAtTime(0, now + duration + release); // release
 
     oscillator.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.5);
+    gainNode.connect(masterGainRef.current);
+    oscillator.start(now);
+    oscillator.stop(now + duration + release + 0.05);
+
+    activeOscillatorsRef.current[key] = { oscillator, gain: gainNode };
+
+    if (cleanupTimeoutsRef.current[key]) {
+      clearTimeout(cleanupTimeoutsRef.current[key]);
+    }
+    // Clean up
+    cleanupTimeoutsRef.current[key] = setTimeout(() => {
+      try {
+        gainNode.disconnect();
+      } catch (_) {}
+      delete activeOscillatorsRef.current[key];
+      delete cleanupTimeoutsRef.current[key];
+    }, (duration + release + 0.1) * 1000);
   };
 
   return (
@@ -122,7 +185,7 @@ const PianoPlayer = () => {
                   pressedKey === n.key ? styles.pressed : ""
                 }`} // Add class if key is pressed
                 onClick={() => {
-                  playNote(n.freq);
+                  playNote(n.key, n.freq);
                   setPressedKey(n.key); // Set pressed key when button clicked
                 }}
               >
