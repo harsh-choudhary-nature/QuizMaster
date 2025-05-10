@@ -41,10 +41,13 @@
   transition: background-color 0.1s ease;
 }
 
-.key:hover {
-  background-color: #ff6347;
-  transform: scale(0.95);
+@media (hover: hover) and (pointer: fine) {
+  .key:hover {
+    background-color: #ff6347;
+    transform: scale(0.95);
+  }
 }
+
 
 .pressed {
   background-color: #ff6347; 

@@ -187,6 +187,13 @@ const PianoPlayer = () => {
                 onClick={() => {
                   playNote(n.key, n.freq);
                   setPressedKey(n.key); // Set pressed key when button clicked
+                  if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                  }
+                  timeoutRef.current = setTimeout(
+                    () => setPressedKey(null),
+                    200
+                  );
                 }}
               >
                 <div>{n.note}</div>
