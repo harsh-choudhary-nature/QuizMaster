@@ -23,10 +23,20 @@
   overflow-y: hidden; /* Prevents vertical scrolling */
   white-space: nowrap; /* Prevents buttons from wrapping to next line */
   width: 100%; /* Takes full width of container */
-  padding: 1rem 0;
+  padding: 1rem 1rem;
+  border-radius: 8px;
   gap: 0.5rem;
   scrollbar-width: thin;
   justify-content: space-between;
+  background: linear-gradient(
+    135deg,
+    #2b1d14 0%,
+    #3e2b1f 25%,
+    #2e1f14 50%,
+    #3b291e 75%,
+    #2b1d14 100%
+  );
+
 }
 
 .key {
