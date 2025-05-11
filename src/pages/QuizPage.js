@@ -4,53 +4,63 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 26; // Increment this manually when you release a new set
+const QUIZ_VERSION = 27; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "Who has been appointed as the new Finance Secretary, replacing Tuhin Kanta Pandey?",
-    options: ["Rajiv Mehrishi", "Rajiv Kumar", "Shaktikanta Das", "Ajay Seth"],
-    correctOption: 3,
-    description:
-      "Ajay Seth has been appointed as the new Finance Secretary, succeeding Tuhin Kanta Pandey in 2025.",
-  },
-  {
-    question:
-      "What is the name of the first India-Africa maritime naval exercise to be held in April 2025?",
-    options: ["Aikeyme", "Samudra Shakti", "La Peros", "Al-Mohad Al-Hindi"],
-    correctOption: 0,
-    description:
-      "The first India-Africa maritime naval exercise, scheduled for April 2025, is named Aikeyme.",
-  },
-  {
-    question:
-      "Which medal did the Indian team win in the mixed quad category event at the ISTAF Sepak Takraw World Cup 2025?",
-    options: ["Gold Medal", "silver medal", "bronze medal", "None of these"],
+      "More than 100 megaliths have been found by the Archaeological Survey of India (ASI) near the Malampuzha Dam in Palakkad in ________.",
+    options: ["Karnataka", "Tamil Nadu", "Kerala", "Maharashtra"],
     correctOption: 2,
     description:
-      "India secured the bronze medal in the mixed quad category at the ISTAF Sepak Takraw World Cup 2025.",
+      "The ASI discovered more than 100 megaliths near the Malampuzha Dam in Palakkad, Kerala.",
   },
   {
     question:
-      "World Theatre Day (WTD) was initiated in 1961 by which international institution?",
+      "Who has been appointed as a full-time member of NITI Aayog in March 2025?",
     options: [
-      "International Monetary Fund and World Bank",
-      "European Union",
-      "Shanghai Cooperation Organization",
-      "International Theatre Institute",
+      "Dr. Vijay Kumar Saraswat",
+      "Pro. Ramesh Chand",
+      "Dr. Vinod Paul",
+      "Rajiv Gauba",
     ],
     correctOption: 3,
     description:
-      "World Theatre Day was initiated in 1961 by the International Theatre Institute to promote theatre across the world.",
+      "Former Cabinet Secretary Rajiv Gauba, a 1982-batch IAS officer from the Jharkhand cadre, has been appointed as a full-time member of NITI Aayog.",
   },
   {
     question:
-      "The Department of Posts released a commemorative postage stamp on the occasion of the ________ birth anniversary of the eminent saint, Mata Karma.",
-    options: ["1009th", "1029th", "1019th", "1059th"],
+      "Who has been appointed as a full-time member of the Economic Advisory Council to the Prime Minister (EAC-PM) by the government in March 2025?",
+    options: [
+      "Ajay Bhushan Pandey",
+      "Rajiv Gauba",
+      "Amitabh Kant",
+      "Sanjay Kumar Mishra",
+    ],
+    correctOption: 3,
+    description:
+      "Sanjay Kumar Mishra has been appointed as a full-time member of the Economic Advisory Council to the Prime Minister in March 2025.",
+  },
+  {
+    question:
+      'A new book, "Leo: The Untold Story," on which cricket team has been released?',
+    options: [
+      "Chennai Super Kings (CSK)",
+      "Royal Challengers Bangalore (RCB)",
+      "Rajasthan Royals (RR)",
+      "Punjab Kings (PBKS)",
+    ],
     correctOption: 0,
     description:
-      "The Department of Posts released a commemorative postage stamp on the occasion of the 1009th birth anniversary of Mata Karma.",
+      'The book "Leo: The Untold Story" has been released on the Chennai Super Kings (CSK) cricket team. It was authored by P.S. Raman, a noted lawyer and former vice-president of the Tamil Nadu Cricket Association.',
+  },
+  {
+    question:
+      "The book 'Ripples of Change' was published by the Department of Drinking Water and Sanitation (DDWS) in association with the _______.",
+    options: ["UNICEF India", "World Bank", "UNESCO", "IMF"],
+    correctOption: 0,
+    description:
+      "The book 'Ripples of Change' was published by the DDWS in association with UNICEF India.",
   },
 ];
 
