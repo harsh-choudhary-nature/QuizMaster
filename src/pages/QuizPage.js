@@ -4,63 +4,58 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 27; // Increment this manually when you release a new set
+const QUIZ_VERSION = 28; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "More than 100 megaliths have been found by the Archaeological Survey of India (ASI) near the Malampuzha Dam in Palakkad in ________.",
-    options: ["Karnataka", "Tamil Nadu", "Kerala", "Maharashtra"],
+      "Who became the first athlete to break the national powerlifting record at the Khelo India Para Games?",
+    options: [
+      "Jaspreet Kaur",
+      "Kavipriya Raja",
+      "Khushboo Gill",
+      "Sonam Patil",
+    ],
+    correctOption: 0,
+    description:
+      "Jaspreet Kaur became the first athlete to break the national powerlifting record at the Khelo India Para Games.",
+  },
+  {
+    question:
+      "Netumbo Nandi-Ndatawa has been sworn in as the first woman President of which of the following country?",
+    options: ["Zimbabwe", "Namibia", "Angola", "Botswana"],
+    correctOption: 1,
+    description:
+      "Netumbo Nandi-Ndatawa has been sworn in as the first woman President of Namibia.",
+  },
+  {
+    question:
+      "Which of the following is the first vertical lift bridge in India?",
+    options: [
+      "Dibang River Bridge",
+      "Dr. Bhupen Hazarika Setu",
+      "Digha Sonepur Bridge",
+      "Pamban Rail Bridge",
+    ],
+    correctOption: 3,
+    description:
+      "Pamban Rail Bridge is India's first vertical lift railway sea bridge, connecting Rameswaram to the mainland.",
+  },
+  {
+    question:
+      "The Employees' State Insurance (ESI) scheme has been implemented in how many districts of Uttar Pradesh?",
+    options: ["74 districts", "70 Districts", "72 Districts", "71 districts"],
+    correctOption: 0,
+    description:
+      "A total of 74 out of 75 districts in Uttar Pradesh are now fully covered under the ESI Scheme, benefiting 30.08 lakh Insured Persons (IPs) and 1.16 crore beneficiaries.",
+  },
+  {
+    question:
+      "On 26th March, which Union Minister announced that the government is planning to launch 'Sahakar' taxis on the lines of Uber and Ola?",
+    options: ["Nitin Gadkari", "Narendra Modi", "Amit Shah", "Piyush Goyal"],
     correctOption: 2,
     description:
-      "The ASI discovered more than 100 megaliths near the Malampuzha Dam in Palakkad, Kerala.",
-  },
-  {
-    question:
-      "Who has been appointed as a full-time member of NITI Aayog in March 2025?",
-    options: [
-      "Dr. Vijay Kumar Saraswat",
-      "Pro. Ramesh Chand",
-      "Dr. Vinod Paul",
-      "Rajiv Gauba",
-    ],
-    correctOption: 3,
-    description:
-      "Former Cabinet Secretary Rajiv Gauba, a 1982-batch IAS officer from the Jharkhand cadre, has been appointed as a full-time member of NITI Aayog.",
-  },
-  {
-    question:
-      "Who has been appointed as a full-time member of the Economic Advisory Council to the Prime Minister (EAC-PM) by the government in March 2025?",
-    options: [
-      "Ajay Bhushan Pandey",
-      "Rajiv Gauba",
-      "Amitabh Kant",
-      "Sanjay Kumar Mishra",
-    ],
-    correctOption: 3,
-    description:
-      "Sanjay Kumar Mishra has been appointed as a full-time member of the Economic Advisory Council to the Prime Minister in March 2025.",
-  },
-  {
-    question:
-      'A new book, "Leo: The Untold Story," on which cricket team has been released?',
-    options: [
-      "Chennai Super Kings (CSK)",
-      "Royal Challengers Bangalore (RCB)",
-      "Rajasthan Royals (RR)",
-      "Punjab Kings (PBKS)",
-    ],
-    correctOption: 0,
-    description:
-      'The book "Leo: The Untold Story" has been released on the Chennai Super Kings (CSK) cricket team. It was authored by P.S. Raman, a noted lawyer and former vice-president of the Tamil Nadu Cricket Association.',
-  },
-  {
-    question:
-      "The book 'Ripples of Change' was published by the Department of Drinking Water and Sanitation (DDWS) in association with the _______.",
-    options: ["UNICEF India", "World Bank", "UNESCO", "IMF"],
-    correctOption: 0,
-    description:
-      "The book 'Ripples of Change' was published by the DDWS in association with UNICEF India.",
+      "On 26th March, Union Home and Cooperation Minister Amit Shah announced the launch of 'Sahakar' taxis modeled after Uber and Ola services.",
   },
 ];
 
