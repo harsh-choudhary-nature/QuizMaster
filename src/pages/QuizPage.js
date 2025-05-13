@@ -4,58 +4,63 @@ import styles from "../styles/QuizPage.module.css";
 
 const LOCAL_STORAGE_KEY = "quiz-progress";
 const VERSION_KEY = "quiz-version";
-const QUIZ_VERSION = 28; // Increment this manually when you release a new set
+const QUIZ_VERSION = 29; // Increment this manually when you release a new set
 
 const defaultQuestions = [
   {
     question:
-      "Who became the first athlete to break the national powerlifting record at the Khelo India Para Games?",
-    options: [
-      "Jaspreet Kaur",
-      "Kavipriya Raja",
-      "Khushboo Gill",
-      "Sonam Patil",
-    ],
-    correctOption: 0,
-    description:
-      "Jaspreet Kaur became the first athlete to break the national powerlifting record at the Khelo India Para Games.",
-  },
-  {
-    question:
-      "Netumbo Nandi-Ndatawa has been sworn in as the first woman President of which of the following country?",
-    options: ["Zimbabwe", "Namibia", "Angola", "Botswana"],
-    correctOption: 1,
-    description:
-      "Netumbo Nandi-Ndatawa has been sworn in as the first woman President of Namibia.",
-  },
-  {
-    question:
-      "Which of the following is the first vertical lift bridge in India?",
-    options: [
-      "Dibang River Bridge",
-      "Dr. Bhupen Hazarika Setu",
-      "Digha Sonepur Bridge",
-      "Pamban Rail Bridge",
-    ],
-    correctOption: 3,
-    description:
-      "Pamban Rail Bridge is India's first vertical lift railway sea bridge, connecting Rameswaram to the mainland.",
-  },
-  {
-    question:
-      "The Employees' State Insurance (ESI) scheme has been implemented in how many districts of Uttar Pradesh?",
-    options: ["74 districts", "70 Districts", "72 Districts", "71 districts"],
-    correctOption: 0,
-    description:
-      "A total of 74 out of 75 districts in Uttar Pradesh are now fully covered under the ESI Scheme, benefiting 30.08 lakh Insured Persons (IPs) and 1.16 crore beneficiaries.",
-  },
-  {
-    question:
-      "On 26th March, which Union Minister announced that the government is planning to launch 'Sahakar' taxis on the lines of Uber and Ola?",
-    options: ["Nitin Gadkari", "Narendra Modi", "Amit Shah", "Piyush Goyal"],
+      "Which country has become the second largest exporter of tea in 2024?",
+    options: ["Myanmar", "Bhutan", "India", "Sri Lanka"],
     correctOption: 2,
     description:
-      "On 26th March, Union Home and Cooperation Minister Amit Shah announced the launch of 'Sahakar' taxis modeled after Uber and Ola services.",
+      "In 2024, India became the second-largest exporter of tea globally, surpassing Sri Lanka.",
+  },
+  {
+    question:
+      "India is a leader in global milk production, aiming to ______ in the next five years.",
+    options: ["300 MMT", "500 MMT", "200 MMT", "100 MMT"],
+    correctOption: 0,
+    description:
+      "India is aiming to reach 300 MMT (Million Metric Tonnes) of milk production in the next five years.",
+  },
+  {
+    question:
+      "What was the name of the tri-services military exercise held in Arunachal Pradesh in March 2025?",
+    options: [
+      "Prachand Prahar",
+      "Desert Hunt",
+      "Poorvi Prahar",
+      "Nomadic Elephant",
+    ],
+    correctOption: 0,
+    description:
+      "The name of the tri-services military exercise held in Arunachal Pradesh in March 2025 was Exercise Prachand Prahar.",
+  },
+  {
+    question:
+      "On March 27, 2025, the European Space Agency announced the closure of the space observatory mission named 'GAIA'. When was this mission launched?",
+    options: [
+      "December 19, 2013",
+      "December 18, 2014",
+      "December 19, 2015",
+      "December 10, 2016",
+    ],
+    correctOption: 0,
+    description:
+      "The European Space Agency's GAIA mission was launched on December 19, 2013 and concluded in 2025.",
+  },
+  {
+    question:
+      "What is the code name of the operation launched by the Indian government to help Myanmar earthquake victims?",
+    options: [
+      "Operation Harmony",
+      "Operation Brahma",
+      "Operation Ganga",
+      "Operation Vanilla",
+    ],
+    correctOption: 1,
+    description:
+      "The Indian government launched 'Operation Brahma' to provide aid to victims of the Myanmar earthquake.",
   },
 ];
 
