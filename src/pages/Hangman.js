@@ -2,64 +2,109 @@ import React, { useState, useEffect, useCallback } from "react";
 import styles from "../styles/Hangman.module.css";
 
 const HangmanGame = () => {
-  const hardcodedWord = "HARVEST"; // Can be changed to a dynamic word daily if needed.
-  const wordHint = "It's what farmers do when their crops are ready";
-  const storageKey = `HANGMAN WORD`;
-
+  const storageKey = `HANGMAN_WORD`;
+  const [loading, setLoading] = useState(false);
   const [word, setWord] = useState("");
   const [maskedWord, setMaskedWord] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [incorrectGuesses, setIncorrectGuesses] = useState([]);
   const [attemptsLeft, setAttemptsLeft] = useState(6);
   const [gameStatus, setGameStatus] = useState(null);
-
+  const [wordHint, setWordHint] = useState("Fetching hint...");
   const [isHintRevealed, setIsHintRevealed] = useState(false);
 
-  // Check if the word in localStorage matches the hardcoded word
   useEffect(() => {
+    const today = new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
     const storedGameState = localStorage.getItem(storageKey);
-    // If no saved state or a version mismatch (i.e., hardcoded word changes)
-    if (!storedGameState) {
-      setWord(hardcodedWord);
-      setMaskedWord("_".repeat(hardcodedWord.length));
-      setGuesses([]);
-      setIncorrectGuesses([]);
-      setAttemptsLeft(6);
-      setGameStatus(null);
-    } else {
-      // Parse the saved game state and load it
-      const savedState = JSON.parse(storedGameState);
-      if (savedState.word !== hardcodedWord) {
-        setWord(hardcodedWord);
-        setMaskedWord("_".repeat(hardcodedWord.length));
+
+    const initializeGame = async () => {
+      setLoading(true);
+
+      if (storedGameState) {
+        const saved = JSON.parse(storedGameState);
+        if (saved.date === today) {
+          setWord(saved.word);
+          setMaskedWord(saved.maskedWord);
+          setGuesses(saved.guesses);
+          setIncorrectGuesses(saved.incorrectGuesses);
+          setAttemptsLeft(saved.attemptsLeft);
+          setGameStatus(saved.gameStatus);
+          setWordHint(saved.hint || "No hint available");
+          setLoading(false);
+          return;
+        }
+      }
+      try {
+        const res = await fetch(
+          "https://random-word-api.herokuapp.com/word?number=1"
+        );
+        const data = await res.json();
+        const newWord = data[0].toUpperCase();
+
+        let newHint = "No hint available";
+        try {
+          const hintRes = await fetch(
+            `https://api.dictionaryapi.dev/api/v2/entries/en/${newWord}`
+          );
+          const hintData = await hintRes.json();
+          newHint =
+            hintData[0]?.meanings?.[0]?.definitions?.[0]?.definition ||
+            "No hint available";
+        } catch (err) {
+          console.warn("Hint fetch failed:", err);
+        }
+
+        const initialState = {
+          word: newWord,
+          maskedWord: "_".repeat(newWord.length),
+          guesses: [],
+          incorrectGuesses: [],
+          attemptsLeft: 6,
+          gameStatus: null,
+          date: today,
+          hint: newHint,
+        };
+
+        localStorage.setItem(storageKey, JSON.stringify(initialState));
+
+        setWord(newWord);
+        setMaskedWord(initialState.maskedWord);
         setGuesses([]);
         setIncorrectGuesses([]);
         setAttemptsLeft(6);
         setGameStatus(null);
-      } else {
-        setWord(savedState.word);
-        setMaskedWord(savedState.maskedWord);
-        setGuesses(savedState.guesses);
-        setIncorrectGuesses(savedState.incorrectGuesses);
-        setAttemptsLeft(savedState.attemptsLeft);
-        setGameStatus(savedState.gameStatus);
+        setWordHint(newHint);
+      } catch (error) {
+        console.error("Error fetching word:", error);
       }
-    }
-  }, [hardcodedWord, storageKey]);
 
-  // Save the game state to localStorage whenever it changes
+      setLoading(false);
+    };
+
+    initializeGame();
+  }, []);
+
   useEffect(() => {
-    if (word && maskedWord !== "" && word !== "") {
-      const gameState = {
-        word,
-        maskedWord,
-        guesses,
-        incorrectGuesses,
-        attemptsLeft,
-        gameStatus,
-      };
-      localStorage.setItem(storageKey, JSON.stringify(gameState));
-    }
+    if (!maskedWord || !word) return;
+    if (maskedWord === word) setGameStatus("won");
+    if (attemptsLeft <= 0) setGameStatus("lost");
+  }, [maskedWord, attemptsLeft, word]);
+
+  useEffect(() => {
+    if (!word) return;
+    const today = new Date().toISOString().split("T")[0];
+
+    const gameState = {
+      word,
+      maskedWord,
+      guesses,
+      incorrectGuesses,
+      attemptsLeft,
+      gameStatus,
+      date: today,
+      hint: wordHint,
+    };
+    localStorage.setItem(storageKey, JSON.stringify(gameState));
   }, [
     word,
     maskedWord,
@@ -67,33 +112,20 @@ const HangmanGame = () => {
     incorrectGuesses,
     attemptsLeft,
     gameStatus,
-    storageKey,
+    wordHint,
   ]);
-
-  useEffect(() => {
-    if (!maskedWord || !word) return;
-    if (maskedWord === word) {
-      setGameStatus("won");
-    }
-    if (attemptsLeft <= 0) {
-      setGameStatus("lost");
-    }
-  }, [maskedWord, attemptsLeft, word]);
 
   const handleGuess = useCallback(
     (letter) => {
       if (guesses.includes(letter) || gameStatus) return;
-
       setGuesses((prev) => [...prev, letter]);
 
       if (word.includes(letter)) {
-        let newMaskedWord = maskedWord.split("");
+        let newMasked = maskedWord.split("");
         for (let i = 0; i < word.length; i++) {
-          if (word[i] === letter) {
-            newMaskedWord[i] = letter;
-          }
+          if (word[i] === letter) newMasked[i] = letter;
         }
-        setMaskedWord(newMaskedWord.join(""));
+        setMaskedWord(newMasked.join(""));
       } else {
         setIncorrectGuesses((prev) => [...prev, letter]);
         setAttemptsLeft((prev) => prev - 1);
@@ -103,44 +135,61 @@ const HangmanGame = () => {
   );
 
   const handleReset = () => {
-    localStorage.removeItem(storageKey);
-    setMaskedWord("_".repeat(word.length));
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+    if (!saved) return;
+
+    const newState = {
+      word: saved.word,
+      maskedWord: "_".repeat(saved.word.length),
+      guesses: [],
+      incorrectGuesses: [],
+      attemptsLeft: 6,
+      gameStatus: null,
+      date: saved.date,
+      hint: saved.hint,
+    };
+
+    localStorage.setItem(storageKey, JSON.stringify(newState));
+
+    setWord(saved.word);
+    setMaskedWord(newState.maskedWord);
     setGuesses([]);
     setIncorrectGuesses([]);
     setAttemptsLeft(6);
     setGameStatus(null);
+    setWordHint(saved.hint);
+    setIsHintRevealed(false);
   };
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      const letter = event.key.toUpperCase();
+    const handleKeyDown = (e) => {
+      const letter = e.key.toUpperCase();
       if (/^[A-Z]$/.test(letter) && !guesses.includes(letter) && !gameStatus) {
         handleGuess(letter);
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [guesses, gameStatus, handleGuess]);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [guesses, gameStatus, handleGuess]); // Include dependencies
+  const toggleHint = () => setIsHintRevealed(!isHintRevealed);
 
-  const isLetterCorrect = (letter) => {
-    return word.includes(letter);
-  };
-
-  const toggleHint = () => {
-    setIsHintRevealed(!isHintRevealed);
-  };
-
+  const isLetterCorrect = (letter) => word.includes(letter);
+  // Show spinner while loading
+  if (loading) {
+    return (
+      <div className={styles.gameContainer}>
+        <div className={styles.spinner}></div>
+      </div>
+    );
+  }
   return (
     <div className={styles.gameContainer}>
       <h2 className={styles.gameTitle}>Hangman</h2>
       <div className={styles.gameBoard}>
         <div className={styles.wordDisplay}>
-          {maskedWord.split("").map((letter, index) => (
-            <span key={index} className={styles.letter}>
+          {maskedWord.split("").map((letter, i) => (
+            <span key={i} className={styles.letter}>
               {letter}
             </span>
           ))}
@@ -175,9 +224,9 @@ const HangmanGame = () => {
         <div className={styles.hintContainer}>
           <button
             onClick={toggleHint}
-            className={`${
+            className={
               !isHintRevealed ? styles.hintButton : styles.hintButtonClicked
-            }`}
+            }
           >
             Hint
           </button>
@@ -189,12 +238,10 @@ const HangmanGame = () => {
             {wordHint}
           </div>
         </div>
-
         <button onClick={handleReset} className={styles.resetButton}>
           Reset Game
         </button>
       </div>
-      {/* Falling Ribbons Animation when the game is won */}
       {gameStatus === "won" && (
         <div className={styles.fallingRibbons}>
           {[...Array(5)].map((_, i) => (
