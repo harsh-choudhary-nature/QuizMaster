@@ -82,7 +82,7 @@ const HangmanGame = () => {
     };
 
     initializeGame();
-  }, []);
+  }, [storageKey]);
 
   useEffect(() => {
     if (!maskedWord || !word) return;
@@ -113,6 +113,7 @@ const HangmanGame = () => {
     attemptsLeft,
     gameStatus,
     wordHint,
+    storageKey,
   ]);
 
   const handleGuess = useCallback(
