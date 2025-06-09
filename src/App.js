@@ -17,6 +17,8 @@ import Profile from "./pages/Profile";
 import GamesPage from "./pages/GamesPage";
 import HangmanGame from "./pages/Hangman";
 import PianoPlayer from "./pages/PianoPlayer";
+import YouTube from "./pages/YouTube";
+import ToolsPage from "./pages/ToolsPage";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/games/daily-quiz" element={<QuizPage />} />
           <Route path="/games/hangman" element={<HangmanGame />} />
           <Route path="/games/pianoplayer" element={<PianoPlayer />} />
+          <Route path="/tools" element={<ToolsPage />} />
+          <Route path="/tools/you-tube" element={<YouTube />} />
           <Route path="*" element={<Navigate to="/games" replace />} />
         </Routes>
       </div>
