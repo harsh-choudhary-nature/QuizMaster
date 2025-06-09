@@ -2,7 +2,8 @@
   text-align: center;
   display: flex;
   min-height: 100vh;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
   background: linear-gradient(to right, #3b4244, #1e1f1f);
   color: white;
@@ -13,6 +14,7 @@
 .wrapper {
   width: 100%;
   max-width: 600px;
+  padding: 8px;
 }
 
 .input {
@@ -22,6 +24,7 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .buttonGroup {
